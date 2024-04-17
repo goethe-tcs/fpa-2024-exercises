@@ -1,0 +1,30 @@
+\begin{exercise}[\easy]
+Let $G$ be a graph with tree-decomposition $\mathcal{T}=(T,\{X_t\}_{t\in V(T)})$. Prove that every clique of $G$ is contained in some bag $X_t$.
+\end{exercise}
+
+\begin{exercise}[\easy]
+Prove Lemma~7.4 from the lecture:\newline
+\noindent \textit{Given a tree decomposition $\mathcal{T}=(T,\{X_t\}_{t\in V(T)})$ of a graph $G$ of width at most $k$, one can in time $O(k^2\cdot \max(|V(T)|,|V(G)|))$ compute a nice tree decomposition of $G$ of width at most $k$ that has at most $O(k|V(G)|)$ nodes.
+}
+\end{exercise}
+
+\begin{exercise}
+A \emph{cut} of a graph $G$ is a partition $(A,B)$ of the vertices of $G$ and the \emph{size} of a cut $(A,B)$ is the number of edges of $G$ that have one endpoint in $A$ and one endpoint in $B$. The problem $\mathrm{MaxCut}$ asks, given a graph $G$, to compute the size of the largest cut in $G$. Prove that $\mathrm{MaxCut}$ can be solved in time $f(\mathsf{tw}(G)) \cdot |V(G)|$ for some computable function $f$ by invoking Courcelle's Theorem.
+\end{exercise}
+
+
+\begin{exercise}
+An $n$-vertex graph $G$ is called an $\alpha$-\emph{edge-expander} if for every set $X \subseteq V(G)$ of size at most $n/2$ there are at least $\alpha\cdot |X|$ edges of $G$ that have exactly one endpoint in $X$. Prove that the treewidth of an $n$-vertex $d$-regular $\alpha$-edge-expander is $\Omega(n\alpha/d)$.
+\end{exercise}
+
+
+\begin{exercise}[\hard ~, 2 Points]
+A \emph{homomorphism} from a graph $H$ to a graph $G$ is a function \[\varphi:V(H)\rightarrow V(G) \,, \] such that for every edge $\{u,v\}$ of $H$ it holds that $\{\varphi(u),\varphi(v)\}$ is an edge of $G$. 
+\begin{enumerate}
+\item (1 Point) Prove that one can decide whether there exists a graph homomorphism from $H$ to $G$ in time
+\[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \]
+by constructing a dynamic programming algorithm over the tree decomposition of $H$.
+\item (1 Point) Prove that one can decide whether a graph $H$ is a subgraph of a graph $G$ in time
+\[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \,.\]
+\end{enumerate}
+\end{exercise}

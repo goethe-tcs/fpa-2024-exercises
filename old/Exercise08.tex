@@ -1,0 +1,44 @@
+\begin{exercise}[12 Points]
+Decide for each of the following statements whether it is \emph{true}, \emph{false} or \emph{unknown}. Each correct answer gives $2$ points, no answer gives $1$ point and a wrong answer gives $0$ points.
+\begin{enumerate}
+\item $ \mathsf{FPT} = \mathsf{W[1]}$ implies $\mathsf{P} = \mathsf{NP}$.
+\item The problem $\textsc{VertexCover}$ is contained in $\mathsf{W[1]}$.
+\item The problem $\textsc{FeedbackVertexSet}$ is $\mathsf{W[1]}$-hard.
+\item The problem $k\textsc{-Path}$ can be solved in time $2^{o(k)}n^{O(1)}$.
+\item There exists an infinite sequence $G_0,G_1,G_2,\dots$ of graphs such that for every pair $i < j$ the graph $G_i$ is not a minor of $G_j$.
+\item The problem $\textsc{VertexCover}$ can be solved in time $1.5^k n^{O(1)}$.
+\end{enumerate} 
+\end{exercise}
+
+\begin{exercise}[12 Points]
+A $d$\emph{-uniform hypergraph} is a pair of a finite set of vertices $\mathcal{U}$ and a set $\mathcal{S}$ of subsets of $\mathcal{U}$ of size $d$. The $d\textsc{-SetPacking}$ problem asks, given a $d$-uniform hypergraph $(\mathcal{U},\mathcal{S})$ and a positive integer $k$, to decide whether there are $k$ elements of $\mathcal{S}$ that are pairwise disjoint. The problem is parameterized by $k$.
+
+Prove that, for every positive integer $d$, the problem $d\textsc{-SetPacking}$ has a kernel with~$O(k^d)$ vertices.
+
+\noindent \textbf{Hint:} Use the Sunflower Lemma
+\end{exercise}
+
+\begin{exercise}[6+6 Points]
+For a positive integer $d$, the problem $\#d\textsc{-DegreeSubgraph}$ asks, given a graph $G=(V,E)$, to compute \emph{the number} of sets $S \subseteq E$ such that $(V,S)$ is a subgraph of $G$ in which every vertex has degree exactly $d$.
+\begin{enumerate}
+\item Prove that $\#d\textsc{-DegreeSubgraph}$ can be solved in time $(d+1)^{2 \mathsf{tw}(G)} |V|^{O(1)}$.
+\item Prove that $\#d\textsc{-DegreeSubgraph}$ can be solved in time $(d+1)^{ \mathsf{tw}(G)} |V|^{O(1)}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[6+6 Points]
+The problem $\textsc{LongestCycle}$ asks, given a graph $G=(V,E)$ and a positive integer $k$, to decide whether there exists a cycle in $G$ of length at least $k$. 
+
+\noindent The problem $\textsc{ExactCycle}$ expects the same input and asks to decide whether there exists a cycle in $G$ of length \emph{exactly} $k$.
+\begin{enumerate}
+\item Prove that $\textsc{ExactCycle}$ can be solved in time $c^k |V|^{O(1)}$ for some constant $c>1$.
+\item Prove that $\textsc{LongestCycle}$ can be solved in time $d^{k} |V|^{O(1)}$ for some constant $d>1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[12 Points]
+The problem $\textsc{MulticoloredBiclique}$ asks, given a positive integer $t$ and a graph $G$ whose vertices are colored with $2t$ different colors, to decide whether there exists a colorful subgraph of $G$ that is isomorphic to the biclique $K_{t,t}$. Here $K_{t,t}$ is the graph with vertices $v_1,\dots,v_t$ and $u_1,\dots,u_t$ and edges $\{v_i,u_j\}$ for every pair $1\leq i,j \leq t$.
+
+Show that $\textsc{MulticoloredBiclique}$ is $\mathsf{W[1]}$-hard when parameterized by $t$.
+\end{exercise}
+

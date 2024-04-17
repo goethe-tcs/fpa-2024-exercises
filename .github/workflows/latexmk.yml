@@ -1,0 +1,62 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Create .gitinfo files
+        run: make gitinfo
+
+      - name: Compile LateX
+        uses: holgerdell/latexmk-action@master
+        with:
+          format: pdf
+          filename: "*.tex"
+
+      - name: Push generated files to branch 'gh-pages'
+        run: |
+          mkdir -p public/
+          cp *.html public/
+          mv *.pdf public/
+          cd public
+          git init -b gh-pages
+          git config user.name $GITHUB_ACTOR
+          git config user.email $GITHUB_ACTOR@users.noreply.github.com
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git add .
+          git commit -m "[release] Publish on GitHub Pages"
+          git push --force origin gh-pages:gh-pages
+        if: ${{ success() }}
+
+      # Copying files and artifacts via SSH
+      # - name: Copying files to server
+      #   uses: appleboy/scp-action@master
+      #   with:
+      #     host: ${{ secrets.REMOTE_HOST }}
+      #     username: ${{ secrets.REMOTE_USER }}
+      #     key: ${{ secrets.SSH_KEY }}
+      #     passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+      #     rm: true
+      #     source: "*.pdf"
+      #     target: "${{ secrets.REMOTE_DIR }}"

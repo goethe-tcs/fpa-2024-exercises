@@ -1,0 +1,36 @@
+
+\begin{exercise}
+In the \emph{Partial Dominating Set} problem, we are given an undirected graph $G$ and positive integers $k$ and $t$, and the goal is to check whether there exists a set $X\subseteq V(G)$ of size at most $k$ such that $|N_G[X]| \geq t$. Obtain an algorithm running in time $2^{O(t)}n^{O(1)}$ for the problem.
+\end{exercise}
+
+\begin{exercise}[\easy]
+Let $n$ be a positive integer and consider the vector space $E_n$ which is defined to be the linear span (over $\mathbb{R}$) of the basis $\{e_S ~|~S \subseteq \{1,\dots,n\}\}$. That is, vectors of $E_n$ are of the form
+\[ \sum_{S \subseteq \{1,\dots,n\}} \lambda_S e_S \,,\]
+where $\lambda_S \in \mathbb{R}$ for every $S$. We define a vector multiplication $\wedge$ over (the basis of) $E_n$ as follows:
+\[e_S \wedge e_T = \varphi(S,T)\cdot e_{S \cup T} \,,\]
+where $\varphi(S,T)= 0$ if $S \cap T \neq \emptyset$ and $\varphi(S,T)=\mathsf{sgn}(\sigma_{S,T})$\footnote{The sign of a permutation is $(-1)^m$ where $m$ is the number of transpositions, e.g. $\mathsf{sgn}(14253)= \mathsf{sgn}((14)(42)(25)(53)) = (-1)^4 = 1$. } otherwise. Here $\sigma_{S,T}$ is the permutation that, given the sequence of elements of $S$ and $T$, each ordered, outputs the ordered sequence over all elements of $S\cup T$. \textbf{Example:} $\varphi(\{4,2\},\{2,3,1\})= 0$ and $\varphi(\{5,4\},\{2,3,1\}) = \mathsf{sgn}(14253)$ because the permutation $(14253)$ orders the sequence $4,5,1,2,3$, which again is the sequence of $\{5,4\}$ and $\{2,3,1\}$ where each set is ordered.
+
+Prove or disprove: For every $e \in E_n\setminus \{0\}$ it holds that $e^2 = 0$.
+\end{exercise}
+
+\begin{exercise}[\hard]
+In the \emph{Closest String} problem, we are given a set of $k$ strings $x_1,\dots,x_k$ over alphabet $\Sigma$, each of length $L$, and a positive integer $d$. The goal is to find a string $y$ of length $L$ such that the \emph{Hamming Distance}\footnote{The Hamming Distance between two strings $x$ and $y$ of the same length is the number of positions $i$ such that $x_i \neq y_i$.} between $y$ and $x_i$ is bounded by $d$ for every $i\in \{1,\dots,k\}$. Prove that the problem is fixed-parameter tractable when parameterized by $k$ and $|\Sigma|$.
+
+\noindent\textbf{Hint:} Formulate the problem as an ILP and use the fact that ILP is fixed-parameter tractable when parametereized by the number of variables.
+
+
+\noindent\textbf{Bonus Point:} Show that the problem is fixed-parameter tractable even when parameterized only by $k$.
+\end{exercise}
+
+\begin{exercise}[\easy]
+In the \emph{Cycle Packing} problem, we are given an undirected graph $G$ and a positive integer $k$, and the goal is to check whether there exist $k$ cycles in $G$ that are pairwise vertex disjoint. Prove that the problem is nonuniformly fixed-parameter tractable, when parameterized by $k$.
+\end{exercise}
+
+\begin{exercise}
+Prove that \emph{Undirected Hamiltonicity}\footnote{That is, given an undirected graph $G$, decide whether $G$ contains an Hamilton Cycle.} is fixed-parameter tractable when parameterized pathwidth. You may assume the existence of an algorithm $\mathbb{A}$ that, given an undirected graph $G$ and a positive integer $k$, computes a (nice) path decomposition of width $k$ of $G$ or correctly decides that there is no such path decomposition. Furthermore $\mathbb{A}$ runs in time $f(k) n^{O(1)}$. (It is not allowed to apply algorithmic meta-theorems such as Courcelle's theorem. Instead you are required to construct a dynamic programming algorithm over the path decomposition of the input graph.)
+\end{exercise}
+
+
+\begin{exercise}[\hard]
+Show that the pathwidth of an $n$-vertex tree is at most $\lceil \log n \rceil$. Construct a class of trees of pathwidth $k$ and $O(3^k)$ vertices.
+\end{exercise}

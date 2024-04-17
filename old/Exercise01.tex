@@ -1,0 +1,59 @@
+\begin{exercise}[\easy]
+  Prove: A directed graph $D = (V, A)$ is acyclic if and only if there is an order $\prec$ on $V$ such that for every arc $(u, v) \in A$, we have that $u \prec v$.
+\end{exercise}
+
+\begin{exercise}[\easy]
+  Consider the following problem: Given a set of $n$ points in the plane, decide whether
+  there is a set of $k$ lines such that every point lies on at least one line. Prove that this problem has a
+  kernel of size $O(k^2)$.
+\end{exercise}
+
+\begin{exercise}
+  Given an undirected graph $G = (V, E)$, a subset of vertices $X \subseteq V$ is a \emph{feedback vertex
+  set} if $G$ after removal of $X$ and all edges incident to $X$ is a forest. Show that the problem of deciding
+  whether a graph has a feedback vertex set of size at most $k$ has a kernel with $O(k)$ vertices on regular,
+  undirected graphs. (Note: The degree is not assumed to be constant.)
+  (Hint: Prove that every yes instance trivially satisfies the size constraint.)
+\end{exercise}
+
+\begin{exercise}
+  The problem Connected Vertex Cover is defined as follows: Given an undirected graph
+  $G$ and a positive integer $k$, decide whether there exists a vertex cover $C$ of $G$ of size at most $k$, and
+  such that the subgraph of $G$ induced by $C$ is connected.
+  \begin{enumerate}
+      \item Where do the kernelization rules for Vertex Cover used to prove Theorem 2.4 fail in the connected
+      case?
+      \item Show that the problems admits a kernel with at most $2^k + O(k^2)$ vertices.
+      \item Show that if the input graph does not contain a $4$-cycle as a subgraph, then the problem admits a
+      kernel with at most $O(k^2)$ vertices.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[\hard]
+  Extend the argument of the previous exercise to show that, for every fixed $d \geq 2$,
+  Connected Vertex Cover restricted to graphs that do not contain the biclique $K_{d,d}$ admits a kernel
+  with $O(k^d)$ vertices.
+\end{exercise}
+
+\begin{exercise}[\hard]
+  Let $G = (V, E)$ be a graph, and let $x \in \mathbb R^V$ be an
+  optimum solution to the linear programming formulation of the vertex cover problem, LPVC($G$). While $x$ is not necessarily half-integral, you will prove now that it can be turned into an optimal solution~$y$ that is half-integral. To this end, define
+  $y\in\mathbb R^V$ as follows:
+  \[
+  y_v = \begin{cases}
+  0 & \text{if } x_v < \frac{1}{2}, \\
+  \frac{1}{2} & \text{if } x_v = \frac{1}{2}, \\
+  1 & \text{if } x_v > \frac{1}{2}.
+  \end{cases}
+  \]
+  Show that $y$ is also an optimal solution to LPVC($G$).
+
+  Hint: For $\delta>0$, define $\tilde x\in\mathbb^V$ with\[
+    \tilde x_v = \begin{cases}
+    x_v-\delta & \text{if } x_v < \frac{1}{2}, \\
+    \frac{1}{2} & \text{if } x_v = \frac{1}{2}, \\
+    x_v+\delta & \text{if } x_v > \frac{1}{2}.
+    \end{cases}\,.
+    \]
+    Show for small enough $\delta$ that $\tilde x$ is also an optimal feasible solution to LPVC($G$). Which setting of $\delta$ leads $\tilde x$ to have fewer values that are not half-integral? Now argue inductively.
+\end{exercise}
