@@ -6,47 +6,47 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\textbf{Note:} Select one problem marked with \mandatory{} from this problem set and submit them in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}.
+\textbf{Note:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
+The problems are roughly ordered by difficulty, choose a problem that you find non-trivial and interesting. (You are of course welcome to try the other problems as well and ask us for feedback.)
 
-\textbf{Skills}
-\begin{enumerate}[S\theblattnummer{}a]
-  \item\label{skill:trivial}
-  \itshape I can design FPT algorithms by observing that the optimal solution must be large.
-  \item\label{skill:bst}
-    \itshape I can design FPT algorithms using the bounded search tree method.
-\end{enumerate}
 
-\sepline
-\paragraph*{Skill-2a: \enquote{Trivial} FPT}\mbox{}\\
-\textbf{\itshape I can design FPT algorithms by observing that the optimal solution must be large.}
+\begin{skill}[\enquote{Trivial} FPT]
+  I can design FPT algorithms by arguing that the optimal solution is large.
+\end{skill}
 
-\begin{exercise}[Independent set in regular graphs] %Trivial FPT: \itshape I can design FPT algorithms by observing that the optimal solution must be large][\mandatory]
+\begin{exercise}[Independent set in regular graphs]\label{independent}
   Recall that the independent set problem asks whether a given graph contains a clique of size at least~$k$.
   Let $r$ be a constant positive integer.
   Show that the independent set problem, when parameterized by~$k$, is fixed-parameter tractable on $r$-regular graphs.
   \emph{Bonus:} Show that this remains true if~$r$ is part of the input and we parameterize by~$k+r$.
 \end{exercise}
 
-  \begin{exercise}[Clique in regular graphs][\mandatory]\label{clique}
+\begin{exercise}[Feedback vertex set in regular graphs]
+  Given an undirected graph $G = (V, E)$, a subset of vertices $X \subseteq V$ is a \emph{feedback vertex
+  set} if removing~$X$ and all edges incident to~$X$ from~$G$ yields a forest. Show that the problem of deciding
+  whether a graph has a feedback vertex set of size at most $k$ is fixed-parameter tractable on regular,
+  undirected graphs. (Note: Unlike \ref{independent}, the degree is not assumed to be constant here!)
+\end{exercise}
+
+
+\begin{skill}[Bounded search trees]
+  I can design FPT algorithms using the bounded search tree method.
+\end{skill}
+
+  \begin{exercise}[Clique in regular graphs]\label{clique}
     Recall that the clique problem asks whether a given graph contains a clique of size at least~$k$.
     Let~$r$ be a constant positive integer.
     Show that the clique problem, when parameterized by~$k$, is fixed-parameter tractable on $r$-regular graphs.
-    \emph{Bonus:} Show that this remains true if~$r$ is part of the input and we parameterize by~$k+r$.
+    \emph{Bonus:} Show that this remains true if~$r$ is part of the input and we parameterize by~$k+r$. (Note: This problem looks similar to \ref{independent}, but the solution is quite different.)
   \end{exercise}
-  
-  \textbf{Note:} On the surface, the following problem looks very similar to \ref{clique}. However, as you will see, the solution is quite different.
 
-  \begin{exercise}[Vertex-cover in degree two][easy]
-  Prove: The vertex-cover problem can be solved optimally in polynomial time on graphs of maximum degree at most $2$.
-  \end{exercise}
-  
-  \begin{exercise}[Bounded search trees for feedback vertex set]
+  \begin{exercise}[Feedback vertex set]
   Show that every graph on $n$ vertices of minimum degree at least $3$ contains a cycle of length at most $2\lceil \log n\rceil$.
   Use this to design a $(\log n)^{O(k)} \cdot  n^{O(1)}$-time algorithm for the feedback vertex set problem on undirected graphs.
   Does this runtime bound satisfy the conditions for an fpt-algorithm, that is, can it be bounded by $f(k) \cdot n^{O(1)}$ for some computable $f$?
   \end{exercise}
   
-  \begin{exercise}[\hard]
+  \begin{exercise}[Chordal completion][\hard]
   A graph is \emph{chordal} if it does not contain a cycle on at least four vertices as an induced subgraph.
   That is, for every cycle of length at least four, 
   there is at least one edge in the graph between two vertices of the cycle that is not in the cycle. 
@@ -62,7 +62,19 @@
   \end{enumerate}
   \end{exercise}
   
-  \begin{exercise}[\hard]
-  Consider the following problem: Given a connected graph $G$ and an integer $k$, decide whether there is a spanning tree of $G$ with at least $k$ leaves. Design an algorithm that solves this problem in time $4^k \cdot n^{O(1)}$.
+  \begin{exercise}[Max leaf spanning tree][\hard]
+  Consider the following problem: Given a connected graph~$G$ and an integer~$k$, decide whether there is a spanning tree of~$G$ with at least~$k$ leaves. Design an algorithm that solves this problem in time $4^k \cdot n^{O(1)}$.
   \end{exercise}
+
+  \sepline
+
+  \paragraph{Additional problems.}
+  These problems are meant to deepen your understanding of the course material.
+
+  \begin{exercise}[Vertex-cover in degree two][easy]
+    Prove: The vertex-cover problem can be solved optimally in polynomial time on graphs of maximum degree at most $2$.
+    \end{exercise}
+    
+
+    
 \end{document}

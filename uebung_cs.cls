@@ -165,8 +165,8 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 	\newtheorem{aufgabePlenum}[aufgabe]{\uebcs@@exercise}
 }{%
 	% \xdef\numberprefix{#1.}
-	\renewcommand{\theaufgabennr}{#1.\arabic{aufgabennr}}
 	\setcounter{blattnummer}{#1}%
+	\renewcommand{\theaufgabennummer}{\theblattnummer.\arabic{aufgabennummer}}
 	\def\uebcs@useblattnummer{true}%
 	\theoremstyle{marginnum}
 	\newtheorem{aufgabe}{\uebcs@@exercise}[blattnummer]
@@ -274,8 +274,8 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 \ProcessOptions
 
 \newboolean{loesung}
-\newcounter{aufgabennr}
-\setcounter{aufgabennr}{0}
+\newcounter{aufgabennummer}
+\setcounter{aufgabennummer}{0}
 
 %\renewcommand\ThisComment[1]{%
 %    \immediate\write\CommentStream{\unexpanded{#1}}%
@@ -335,31 +335,31 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 	\par\nopagebreak%
     % \begin{samepage}%
 		\bfseries\smash{\llap{\myrightbox{%
-			\theaufgabennr\hskip\labelsep\\%
+			\theaufgabennummer\hskip\labelsep\\%
 			\small#2%
 		}\hskip\labelsep}}%
 		\ifthenelse{\isempty{#1}}{}{#1.\\}\normalfont%
 }{%
     % \end{samepage}%
 	\par\nopagebreak%
-	\stepcounter{aufgabennr}%
+	\stepcounter{aufgabennummer}%
 }
 
 % \NewDocumentEnvironment{exercise}{O{} O{}}{%
 %     \begin{samepage}%
 % 		\bfseries\smash{\llap{%
-% 			\small#2\normalsize\ }\theaufgabennr\hskip\labelsep}%
+% 			\small#2\normalsize\ }\theaufgabennummer\hskip\labelsep}%
 % 		\ifthenelse{\isempty{#1}}{}{#1.}\normalfont%
 % }{%
-%     \end{samepage}\stepcounter{aufgabennr}%
+%     \end{samepage}\stepcounter{aufgabennummer}%
 % }
 
 \NewDocumentEnvironment{exercise}{O{} O{}}{%
     \begin{trivlist}%
 		\phantomsection % Create a target for hyperlinks
-		\refstepcounter{aufgabennr} % Increment the counter and make the value available for reference
+		\refstepcounter{aufgabennummer} % Increment the counter and make the value available for reference
     \item[\hskip \labelsep
-        \bfseries\smash{\llap{\small#2\normalsize\ }\theaufgabennr}]%
+        \bfseries\smash{\llap{\small#2\normalsize\ }\theaufgabennummer}]%
         \ifthenelse{\isempty{#1}}{}{\bfseries #1.}%
 				\normalfont%
 }{%

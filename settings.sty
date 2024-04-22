@@ -49,19 +49,37 @@
 \renewcommand{\hint}[1]{\emph{Hint: \reflectbox{#1}}}
 
 \def\legende{%
-\begin{itemize}[noitemsep]
-  \item[\schriftlich] Schriftliche Aufgabe, die du fristgerecht in Moodle abgibst. In der Klausur wirst du alle Aufgaben schriftlich bearbeiten, daher ist das Feedback der Tutoren wichtig, damit du deine Schreibfähigkeiten verbessern kannst.
-  \item[\bestehen] Diese Art von Aufgabe musst du sicher können, um die Klausur zu bestehen.
-  \item[\mittel] Diese Art von Aufgabe musst du weitgehend können, um die Klausur zu bestehen.
-  \item[\note] Diese Art von Aufgabe musst du können, um eine gute Note zu erhalten.
-  \item[\spass] Diese Aufgabe ist als Knobelspaß gedacht, der das algorithmische Verständnis vertieft.
-\end{itemize}
+  \begin{itemize}[noitemsep]
+    \item[\schriftlich] Schriftliche Aufgabe, die du fristgerecht in Moodle abgibst. In der Klausur wirst du alle Aufgaben schriftlich bearbeiten, daher ist das Feedback der Tutoren wichtig, damit du deine Schreibfähigkeiten verbessern kannst.
+    \item[\bestehen] Diese Art von Aufgabe musst du sicher können, um die Klausur zu bestehen.
+    \item[\mittel] Diese Art von Aufgabe musst du weitgehend können, um die Klausur zu bestehen.
+    \item[\note] Diese Art von Aufgabe musst du können, um eine gute Note zu erhalten.
+    \item[\spass] Diese Aufgabe ist als Knobelspaß gedacht, der das algorithmische Verständnis vertieft.
+  \end{itemize}
 }
 
 \newcommand{\sepline}{%
-\begin{center}%
-  \noindent\rule{0.9\textwidth}{0.4pt}%
-\end{center}%
+  \begin{center}%
+    \noindent\rule{0.9\textwidth}{0.4pt}%
+  \end{center}%
+}
+
+\newcounter{skillnummer}
+\setcounter{skillnummer}{0}
+\renewcommand{\theskillnummer}{Skill-\theblattnummer\alph{skillnummer}}
+
+
+\NewDocumentEnvironment{skill}{O{} O{}}{%
+  \sepline
+  \begin{trivlist}%
+    \phantomsection
+    \refstepcounter{skillnummer}
+    \item[\hskip \labelsep
+                \underline{\bfseries\smash{\llap{\small#2\normalsize\ }}\theskillnummer.}]%
+    \ifthenelse{\isempty{#1}}{}{\bfseries #1:}%
+    \normalfont\itshape
+    }{
+  \end{trivlist}%
 }
 
 \endinput
