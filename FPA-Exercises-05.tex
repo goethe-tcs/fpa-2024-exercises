@@ -2,56 +2,65 @@
 \documentclass{uebung_cs}
 \usepackage{settings}
 \blattnummer{5}
-\blattname{Problem set \theblattnummer: }
+\blattname{Problem set \theblattnummer: Treewidth and Graph minors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+  
+\textbf{Overview:} With this problem set, you can train reasoning about algorithmic meta-theorems.
 
-\begin{exercise}[todo: skill]
+\textbf{Instructions:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
+The problems are roughly ordered by difficulty, choose a problem that you find non-trivial and interesting. (You are of course welcome to try the other problems as well and ask us for feedback.)
+
+% % own exercise, 2018
+% \begin{exercise}[todo: skill]
+% %[\easy]
+% Let $n$ be a positive integer and consider the vector space $E_n$ which is defined to be the linear span (over $\mathbb{R}$) of the basis $\{e_S ~|~S \subseteq \{1,\dots,n\}\}$. That is, vectors of $E_n$ are of the form
+% \[ \sum_{S \subseteq \{1,\dots,n\}} \lambda_S e_S \,,\]
+% where $\lambda_S \in \mathbb{R}$ for every $S$. We define a vector multiplication $\wedge$ over (the basis of) $E_n$ as follows:
+% \[e_S \wedge e_T = \varphi(S,T)\cdot e_{S \cup T} \,,\]
+% where $\varphi(S,T)= 0$ if $S \cap T \neq \emptyset$ and $\varphi(S,T)=\mathsf{sgn}(\sigma_{S,T})$\footnote{The sign of a permutation is $(-1)^m$ where $m$ is the number of transpositions, e.g. $\mathsf{sgn}(14253)= \mathsf{sgn}((14)(42)(25)(53)) = (-1)^4 = 1$. } otherwise. Here $\sigma_{S,T}$ is the permutation that, given the sequence of elements of $S$ and $T$, each ordered, outputs the ordered sequence over all elements of $S\cup T$. \textbf{Example:} $\varphi(\{4,2\},\{2,3,1\})= 0$ and $\varphi(\{5,4\},\{2,3,1\}) = \mathsf{sgn}(14253)$ because the permutation $(14253)$ orders the sequence $4,5,1,2,3$, which again is the sequence of $\{5,4\}$ and $\{2,3,1\}$ where each set is ordered.
+
+% Prove or disprove: For every $e \in E_n\setminus \{0\}$ it holds that $e^2 = 0$.
+% \end{exercise}
+
+\begin{skill}[Algorithmic meta-theorems]
+  I can apply algorithmic meta-theorems to design fixed-parameter tractable algorithms.
+\end{skill}
+
+\begin{exercise}[Maximum Cut using Courcelle's Theorem]
+  A \emph{cut} of a graph $G$ is a partition $(A,B)$ of the vertices of $G$ and the \emph{size} of a cut $(A,B)$ is the number of edges of $G$ that have one endpoint in $A$ and one endpoint in $B$. The problem $\mathrm{MaxCut}$ asks, given a graph $G$, to compute the size of the largest cut in $G$. Prove that $\mathrm{MaxCut}$ can be solved in time $f(\mathsf{tw}(G)) \cdot |V(G)|$ for some computable function $f$ by invoking Courcelle's Theorem (Theorem 7.11).
+  \end{exercise}
+  
+% Cygan et al., Exercise 6.19
+\begin{exercise}[Cycle Packing using Graph Minors]
 %[\easy]
-Let $G$ be a graph with tree-decomposition $\mathcal{T}=(T,\{X_t\}_{t\in V(T)})$. Prove that every clique of $G$ is contained in some bag $X_t$.
+In the \emph{Cycle Packing} problem, we are given an undirected graph $G$ and a positive integer $k$, and the goal is to check whether there exist $k$ cycles in $G$ that are pairwise vertex disjoint. Use Theorem~6.12 from the book to prove that this problem is nonuniformly fixed-parameter tractable when parameterized by $k$.
 \end{exercise}
 
-\begin{exercise}[todo: skill]
-%[\easy]
-Prove Lemma~7.4 from the lecture:\newline
-\noindent \textit{Given a tree decomposition $\mathcal{T}=(T,\{X_t\}_{t\in V(T)})$ of a graph $G$ of width at most $k$, one can in time $O(k^2\cdot \max(|V(T)|,|V(G)|))$ compute a nice tree decomposition of $G$ of width at most $k$ that has at most $O(k|V(G)|)$ nodes.
-}
-\end{exercise}
+% Cygan et al., Exercise 6.10
+\begin{exercise}[Closest String using Integer Linear Programming][\hard]
+  In the \emph{Closest String} problem, we are given a set of $k$ strings $x_1,\dots,x_k$ over alphabet $\Sigma$, each of length $L$, and a positive integer $d$. The goal is to find a string $y$ of length $L$ such that the \emph{Hamming Distance}\footnote{The Hamming Distance between two strings $x$ and $y$ of the same length is the number of positions $i$ such that $x_i \neq y_i$ holds.} between $y$ and $x_i$ is bounded by $d$ for every $i\in \{1,\dots,k\}$. Use Theorem~6.5 from the book to prove that the problem is fixed-parameter tractable when parameterized by $k$ and $|\Sigma|$.
+  
+  \noindent\emph{Optional bonus task:} Show that this problem parameterized by~$k$ only remains fixed-parameter tractable.
+  \end{exercise}
+  
 
-\begin{exercise}[todo: skill]
-A \emph{cut} of a graph $G$ is a partition $(A,B)$ of the vertices of $G$ and the \emph{size} of a cut $(A,B)$ is the number of edges of $G$ that have one endpoint in $A$ and one endpoint in $B$. The problem $\mathrm{MaxCut}$ asks, given a graph $G$, to compute the size of the largest cut in $G$. Prove that $\mathrm{MaxCut}$ can be solved in time $f(\mathsf{tw}(G)) \cdot |V(G)|$ for some computable function $f$ by invoking Courcelle's Theorem.
-\end{exercise}
+  \begin{skill}[Graph minors]
+    I can mathematically reason about graph minors and apply the Graph Minors Theorem.
+  \end{skill}
 
+  % Cygan et al., Exercise 7.35
+  \begin{exercise}[Excluded Grid Theorem is Tight]
+    Show that the dependency on $k$ in the Excluded Grid Theorem needs to be $\Omega(k^2)$. That is, construct a graph of treewidth $\Omega(k^2)$ that does not contain a $k \times k$ grid as a minor.
+  \end{exercise}
 
-\begin{exercise}[todo: skill]
-An $n$-vertex graph $G$ is called an $\alpha$-\emph{edge-expander} if for every set $X \subseteq V(G)$ of size at most $n/2$ there are at least $\alpha\cdot |X|$ edges of $G$ that have exactly one endpoint in $X$. Prove that the treewidth of an $n$-vertex $d$-regular $\alpha$-edge-expander is $\Omega(n\alpha/d)$.
-\end{exercise}
+  % Cygan et al., Exercise 7.37
+  \begin{exercise}[Brambles in Grid Graphs][\hard]
+    Prove that for every $t > 1$, the $t\times t$ grid graph contains a bramble of order $t + 1$ and thus the treewidth of the $t\times t$ grid graph is~$t$.
+  \end{exercise}
 
-
-\textbf{Note:} Problems marked with \mandatory are mandatory and must be submitted in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}.
-
-\begin{exercise}[todo: skill][\mandatory]
-  todo: exercise text
-\end{exercise}
-
-\textbf{Note:} Problems marked with \hard are especially challenging---they require that you invest a lot of time, play around with different ideas, and have a bit of luck that you find one that works. Best enjoyed with your favorite beverage and a friend. If you solve them, you can be proud of yourself. If you don't, you can still be proud of yourself for trying.
-
-\begin{exercise}[todo: skill][\hard]% ~, 2 Points]
-A \emph{homomorphism} from a graph $H$ to a graph $G$ is a function \[\varphi:V(H)\rightarrow V(G) \,, \] such that for every edge $\{u,v\}$ of $H$ it holds that $\{\varphi(u),\varphi(v)\}$ is an edge of $G$. 
-\begin{enumerate}
-\item (1 Point) Prove that one can decide whether there exists a graph homomorphism from $H$ to $G$ in time
-\[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \]
-by constructing a dynamic programming algorithm over the tree decomposition of $H$.
-\item (1 Point) Prove that one can decide whether a graph $H$ is a subgraph of a graph $G$ in time
-\[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \,.\]
-\end{enumerate}
-\end{exercise}
-
-\newpage
-\textbf{Note:} The following problems are meant to deepen your understanding of the course material. If you want, you can submit them to train your formal writing skills.
-
-\begin{exercise}[Formal writing: \itshape I can write a formal proof when I am given a proof sketch][\schriftlich]
-  todo: exercise text
-\end{exercise}
-
+  % Cygan et al., Exercise 7.40
+  \begin{exercise}[Bidimensionality]
+    Show that the following problems are bidimensional: Feedback Vertex Set, Induced Matching, Cycle Packing, Scattered Set for a fixed value of $d$, Longest Path, Dominating Set, and $r$-Center for a fixed $r$.
+    \end{exercise}
 \end{document}
