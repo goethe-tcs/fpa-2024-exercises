@@ -156,7 +156,7 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 % Usage: \blattnummer{Nummer}
 \newcommand{\blattnummer}[1]{%
 \ifthenelse{\isempty{#1}}{%
-	\def\uebcs@useuebungnr{false}%
+	\def\uebcs@useblattnummer{false}%
 	\theoremstyle{marginnum}
 	\newtheorem{aufgabe}{\uebcs@@exercise}
 	\theoremstyle{marginnumHome}
@@ -166,10 +166,10 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 }{%
 	% \xdef\numberprefix{#1.}
 	\renewcommand{\theaufgabennr}{#1.\arabic{aufgabennr}}
-	\setcounter{uebungnr}{#1}%
-	\def\uebcs@useuebungnr{true}%
+	\setcounter{blattnummer}{#1}%
+	\def\uebcs@useblattnummer{true}%
 	\theoremstyle{marginnum}
-	\newtheorem{aufgabe}{\uebcs@@exercise}[uebungnr]
+	\newtheorem{aufgabe}{\uebcs@@exercise}[blattnummer]
 	\theoremstyle{marginnumHome}
 	\newtheorem{aufgabeHome}[aufgabe]{\uebcs@@exercise}
 	\theoremstyle{marginnumPlenum}
@@ -259,7 +259,7 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % defaults
-\newcounter{uebungnr}
+\newcounter{blattnummer}
 %\blattnummer{}
 \institute{Institut f"ur Informatik}
 \chair{Blue Screen Research Group}
@@ -440,7 +440,7 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 
 %{\parbox[b]{100mm}{%
 %\Large\bfseries\ifthenelse{\equal{\uebcs@blattname}{}}{%
-%\uebcs@@assignment\ \arabic{uebungnr}%
+%\uebcs@@assignment\ \arabic{blattnummer}%
 %}{%
 {\Large\bfseries\uebcs@blattname}%
 %}

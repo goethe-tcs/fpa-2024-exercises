@@ -2,7 +2,7 @@
 \documentclass{uebung_cs}
 \usepackage{settings}
 \blattnummer{1}
-\blattname{Problem Set~\arabic{uebungnr}: Kernelization}
+\blattname{Problem Set~\theblattnummer: Kernelization}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
@@ -64,4 +64,14 @@
     \]
     Show for small enough $\delta$ that $\widetilde x$ is also an optimal feasible solution to LPVC($G$). Which setting of~$\delta$ leads~$\widetilde x$ to have fewer values that are not half-integral? Now argue inductively.
 \end{exercise}
+
+
+\begin{exercise}[Sunflower lemma: \itshape I can apply the sunflower lemma to design kernelization algorithms] %[\mandatory]
+  First, read Section 2.6 about the Sunflower Lemma in the book, including its application to the $d$-hitting set problem.
+  Then, using similar ideas, solve the following exercise on the $d$-set packing problem:
+  You are given an integer $k$ and a family of subsets $\mathcal{A}$ of a universe $U$, where each set in $\mathcal{A}$ is of size at most $d$. Decide whether there exist $k$ sets $S_1,\ldots,S_k \in \mathcal{A}$ that are pairwise disjoint.
+  Use the Sunflower Lemma to obtain a kernel for this problem with $f(d)\cdot k^d$ sets, for some computable $f$.
+\end{exercise}
+
 \end{document}
+
