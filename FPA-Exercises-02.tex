@@ -2,64 +2,67 @@
 \documentclass{uebung_cs}
 \usepackage{settings}
 \blattnummer{2}
-\blattname{TODO}
+\blattname{Problem Set~\theblattnummer: Bounded search trees}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\textbf{Note:} Problems marked with \mandatory are mandatory and must be submitted in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}.
+\textbf{Note:} Select one problem marked with \mandatory{} from this problem set and submit them in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}.
 
-\begin{exercise}[Application of Sunflower Lemma: \itshape I can todo][\mandatory]
-First, read Section 2.6 about the Sunflower Lemma in the book, including its application to the $d$-hitting set problem.
-Then, using similar ideas, solve the following exercise on the $d$-set packing problem:
-You are given an integer $k$ and a family of subsets $\mathcal{A}$ of a universe $U$, where each set in $\mathcal{A}$ is of size at most $d$. Decide whether there exist $k$ sets $S_1,\ldots,S_k \in \mathcal{A}$ that are pairwise disjoint.
-Use the Sunflower Lemma to obtain a kernel for this problem with $f(d)\cdot k^d$ sets, for some computable $f$.
-\end{exercise}
-
-\begin{exercise}[todo: skill]
-%[\easy]
-Fix an integer $r > 0$. 
-Show that the clique and independent set problem, when parameterized by the solution size, are fixed-parameter tractable on $r$-regular graphs.
-Show that this remains true if $r$ is not fixed anymore and we parameterize by $k+r$ .
-\end{exercise}
-
-\begin{exercise}[todo: skill]
-%[\easy]
-Prove: The vertex cover problem can be solved optimally in polynomial time on graphs of maximum degree at most $2$.
-\end{exercise}
-
-\begin{exercise}[todo: skill]
-Show that a graph on $n$ vertices of minimum degree at least $3$ contains a cycle of length at most $2\lceil \log n\rceil$.
-Use this to design a $(\log n)^{O(k)} \cdot  n^{O(1)}$-time algorithm for the feedback vertex set problem on undirected graphs.
-Does this runtime bound suffice the conditions for an fpt-algorithm, i.e., can it be bounded by $f(k) \cdot n^{O(1)}$ for some computable $f$?
-\end{exercise}
-
-\textbf{Note:} Problems marked with \hard are especially challenging---they require that you invest a lot of time, play around with different ideas, and have a bit of luck that you find one that works. Best enjoyed with your favorite beverage and a friend. If you solve them, you can be proud of yourself. If you don't, you can still be proud of yourself for trying.
-
-\begin{exercise}[todo: skill][\hard]
-A graph is \emph{chordal} if it does not contain a cycle on at least four vertices as an induced subgraph.
-That is, for every cycle of length at least four, 
-there is at least one edge in the graph between to vertices of the cycle that is not in the cycle. 
-Such an edge is a \emph{chord}. Hence the name.
-
-A \emph{triangulation} of a graph $G=(V,E)$ is a set of edges $E' \subseteq \binom{V}{2}$ such that $(V,E\cup E')$ is chordal.
-
-Consider the chordal completion problem: Given a graph and an integer $k$, decide whether $G$ has a triangulation of size at most $k$. 
-\begin{enumerate}
-\item Give a $k^{O(k)} n^{O(1)}$-time algorithm for the problem.
-\item Show that there is a bijection between inclusion-wise minimal triangulations of a cycle of length $\ell$ and binary trees with $\ell-2$ internal nodes. From this, conclude that a cycle on $\ell$ vertices has at most $4^{\ell-2}$ inclusion-wise minimal triangulations.
-\item Use the previous point to design an algorithm for the problem running in time $2^{O(k)} \cdot n^{O(1)}$.
+\textbf{Skills}
+\begin{enumerate}[S\theblattnummer{}a]
+  \item\label{skill:trivial}
+  \itshape I can design FPT algorithms by observing that the optimal solution must be large.
+  \item\label{skill:bst}
+    \itshape I can design FPT algorithms using the bounded search tree method.
 \end{enumerate}
+
+\sepline
+\paragraph*{Skill-2a: \enquote{Trivial} FPT}\mbox{}\\
+\textbf{\itshape I can design FPT algorithms by observing that the optimal solution must be large.}
+
+\begin{exercise}[Independent set in regular graphs] %Trivial FPT: \itshape I can design FPT algorithms by observing that the optimal solution must be large][\mandatory]
+  Recall that the independent set problem asks whether a given graph contains a clique of size at least~$k$.
+  Let $r$ be a constant positive integer.
+  Show that the independent set problem, when parameterized by~$k$, is fixed-parameter tractable on $r$-regular graphs.
+  \emph{Bonus:} Show that this remains true if~$r$ is part of the input and we parameterize by~$k+r$.
 \end{exercise}
 
-\begin{exercise}[todo: skill][\hard]
-Consider the following problem: Given a connected graph $G$ and an integer $k$, decide whether there is a spanning tree of $G$ with at least $k$ leaves. Design an algorithm that solves this problem in time $4^k \cdot n^{O(1)}$.
-\end{exercise}
+  \begin{exercise}[Clique in regular graphs][\mandatory]\label{clique}
+    Recall that the clique problem asks whether a given graph contains a clique of size at least~$k$.
+    Let~$r$ be a constant positive integer.
+    Show that the clique problem, when parameterized by~$k$, is fixed-parameter tractable on $r$-regular graphs.
+    \emph{Bonus:} Show that this remains true if~$r$ is part of the input and we parameterize by~$k+r$.
+  \end{exercise}
+  
+  \textbf{Note:} On the surface, the following problem looks very similar to \ref{clique}. However, as you will see, the solution is quite different.
 
-\newpage
-\textbf{Note:} The following problems are meant to deepen your understanding of the course material. If you want, you can submit them to train your formal writing skills.
-
-\begin{exercise}[Formal writing: \itshape I can write a formal proof when I am given a proof sketch][\schriftlich]
-  todo: exercise text
-\end{exercise}
-
+  \begin{exercise}[Vertex-cover in degree two][easy]
+  Prove: The vertex-cover problem can be solved optimally in polynomial time on graphs of maximum degree at most $2$.
+  \end{exercise}
+  
+  \begin{exercise}[Bounded search trees for feedback vertex set]
+  Show that every graph on $n$ vertices of minimum degree at least $3$ contains a cycle of length at most $2\lceil \log n\rceil$.
+  Use this to design a $(\log n)^{O(k)} \cdot  n^{O(1)}$-time algorithm for the feedback vertex set problem on undirected graphs.
+  Does this runtime bound satisfy the conditions for an fpt-algorithm, that is, can it be bounded by $f(k) \cdot n^{O(1)}$ for some computable $f$?
+  \end{exercise}
+  
+  \begin{exercise}[\hard]
+  A graph is \emph{chordal} if it does not contain a cycle on at least four vertices as an induced subgraph.
+  That is, for every cycle of length at least four, 
+  there is at least one edge in the graph between two vertices of the cycle that is not in the cycle. 
+  Such an edge is a \emph{chord}. Hence the name.
+  
+  A \emph{triangulation} of a graph $G=(V,E)$ is a set of edges $E' \subseteq \binom{V}{2}$ such that $(V,E\cup E')$ is chordal.
+  
+  Consider the chordal completion problem: Given a graph and an integer $k$, decide whether $G$ has a triangulation of size at most $k$. 
+  \begin{enumerate}
+  \item Give a $k^{O(k)} n^{O(1)}$-time algorithm for the problem.
+  \item Show that there is a bijection between inclusion-wise minimal triangulations of a cycle of length $\ell$ and binary trees with $\ell-2$ internal nodes. From this, conclude that a cycle on $\ell$ vertices has at most $4^{\ell-2}$ inclusion-wise minimal triangulations.
+  \item Use the previous point to design an algorithm for the problem running in time $2^{O(k)} \cdot n^{O(1)}$.
+  \end{enumerate}
+  \end{exercise}
+  
+  \begin{exercise}[\hard]
+  Consider the following problem: Given a connected graph $G$ and an integer $k$, decide whether there is a spanning tree of $G$ with at least $k$ leaves. Design an algorithm that solves this problem in time $4^k \cdot n^{O(1)}$.
+  \end{exercise}
 \end{document}
