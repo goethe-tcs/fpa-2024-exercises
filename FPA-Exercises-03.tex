@@ -1,0 +1,61 @@
+% LTeX: language=en_US
+\documentclass{uebung_cs}
+\usepackage{settings}
+\blattnummer{3}
+\blattname{TODO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{exercise}[todo: skill]
+Obtain an algorithm for 3-\emph{Hitting Set} running in time $2.4656^kn^{O(1)}$ using iterative compression. Generalize this algorithm to obtain an algorithm for d-\emph{Hitting Set} running in time \[((d-1)+0.4656)^kn^{O(1)} \,. \]
+\end{exercise}
+
+\begin{exercise}[todo: skill]
+%[\easy]
+Design a randomized polynomial-time algorithm $\mathbb{A}$ that, given a graph $G$ and a positive integer $k$, outputs $0$ with probability $1$ if $G$ has no vertex cover of size $k$ and outputs $1$ with probability $\geq 2^{-k}$ if $G$ has a vertex cover of size $k$.
+
+Then use $\mathbb{A}$ to obtain a randomized algorithm for Vertex Cover running in time $2^{O(k)} n^{O(1)}$ that succeeds in the positive case with probability $\geq 1/2$ and give a formal proof of the bound on the success probability.
+\end{exercise}
+
+In the subsequent exercises, a \emph{randomized algorithm} is assumed to have one-sided error with constant success probability.
+
+\begin{exercise}[todo: skill]
+%[\easy]
+In the \emph{Triangle Packing} problem, we are given an undirected graph $G$ and a positive integer $k$, and the objective is to test whether $G$ has $k$ vertex-disjoint triangles. Using color coding show that the problem admits a randomized algorithm with running time $2^{O(k)} n^{O(1)}$.
+\end{exercise}
+
+
+\begin{exercise}[todo: skill]
+In the \emph{Tree Subgraph Isomorphism} problem, we are given an undirected graph $G$ and a tree~$T$ on~$k$ vertices, and the objective is to decide whether there exists a subgraph in~$G$ that is isomorphic to~$T$. Obtain a $2^{O(k)}n^{O(1)}$-time randomized algorithm for the problem using color coding.
+\end{exercise}
+
+
+\textbf{Note:} Problems marked with \mandatory are mandatory and must be submitted in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}.
+
+\begin{exercise}[todo: skill][\mandatory]
+  todo: exercise text
+\end{exercise}
+
+\textbf{Note:} Problems marked with \hard are especially challenging---they require that you invest a lot of time, play around with different ideas, and have a bit of luck that you find one that works. Best enjoyed with your favorite beverage and a friend. If you solve them, you can be proud of yourself. If you don't, you can still be proud of yourself for trying.
+
+\begin{exercise}[todo: skill][\hard]
+A set $X \subseteq V(G)$ of an undirected graph $G$ is called an \emph{independent feedback vertex set} if $G[X]$ is independent and $G - X$ is acyclic. In the \emph{Independent Feedback Vertex Set} problem, we are given as input a graph $G$ and a positive integer $k$, and the objective is to decide whether $G$ has an independent feedback vertex set of size at most $k$. Show that this problem is fixed-parameter tractable by obtaining an algorithm running in time $5^kn^{O(1)}$ using iterative compression.
+\end{exercise}
+
+\begin{exercise}[\hard]
+Consider the following problem: Given an undirected graph $G$ and positive integers $k$ and $q$, find a set $X$ of at most $k$ vertices such that $G - X$ has at least two components of size at least~$q$.
+\begin{enumerate}
+\item Show that this problem can be solved in time $2^{O(q+k)}n^{O(1)}$ by a randomized algorithm.
+\item Assuming $q>k$, show that the problem can be solved in time $q^{O(k)}n^{O(1)}$ by a randomized algorithm.
+\end{enumerate}
+\end{exercise}
+
+
+\newpage
+\textbf{Note:} Problems marked with \schriftlich are meant to train your formal writing skills.
+
+\begin{exercise}[Formal writing: \itshape I can write a formal proof when I am given a proof sketch][\schriftlich]
+  todo: exercise text
+\end{exercise}
+
+\end{document}
