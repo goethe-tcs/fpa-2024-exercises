@@ -95,7 +95,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{lastpage}
-\cfoot{Seite \thepage\ von \pageref*{LastPage}}
+\cfoot{\uebcs@@seite{\thepage}{\pageref*{LastPage}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -237,6 +237,7 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 %\def\uebcs@@email{E-Mail}
 \def\uebcs@@samplesolution{Lösungsvorschlag}
 \def\uebcs@@solution{Lösungsvorschlag}
+\newcommand\uebcs@@seite[2]{Seite #1 von #2}
 }
 
 \DeclareOption{english}
@@ -254,6 +255,7 @@ colframe=orange!80!gray,fonttitle=\scriptsize,title=#1, center title]{#2}}
 %\def\uebcs@@email{E-mail}
 \def\uebcs@@samplesolution{Sample Solution}
 \def\uebcs@@solution{Solution}
+\renewcommand\uebcs@@seite[2]{Page #1 of #2}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
