@@ -5,7 +5,7 @@
 \blattname{Problem set \theblattnummer: Treewidth and Graph minors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-  
+
 \textbf{Overview:} With this problem set, you can train reasoning about algorithmic meta-theorems.
 
 \textbf{Instructions:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
@@ -23,45 +23,45 @@ The problems are roughly ordered by difficulty, choose a problem that you find n
 % Prove or disprove: For every $e \in E_n\setminus \{0\}$ it holds that $e^2 = 0$.
 % \end{exercise}
 
-\begin{skill}[Algorithmic meta-theorems]
+\begin{skill}[Algorithmic meta-theorems][\mandatory]
   I can apply algorithmic meta-theorems to design fixed-parameter tractable algorithms.
 \end{skill}
 
 \begin{exercise}[Maximum Cut using Courcelle's Theorem]
   A \emph{cut} of a graph $G$ is a partition $(A,B)$ of the vertices of $G$ and the \emph{size} of a cut $(A,B)$ is the number of edges of $G$ that have one endpoint in $A$ and one endpoint in $B$. The problem $\mathrm{MaxCut}$ asks, given a graph $G$, to compute the size of the largest cut in $G$. Prove that $\mathrm{MaxCut}$ can be solved in time $f(\mathsf{tw}(G)) \cdot |V(G)|$ for some computable function $f$ by invoking Courcelle's Theorem (Theorem 7.11).
-  \end{exercise}
-  
+\end{exercise}
+
 % Cygan et al., Exercise 6.19
 \begin{exercise}[Cycle Packing using Graph Minors]
-%[\easy]
-In the \emph{Cycle Packing} problem, we are given an undirected graph $G$ and a positive integer $k$, and the goal is to check whether there exist $k$ cycles in $G$ that are pairwise vertex disjoint. Use Theorem~6.12 from the book to prove that this problem is nonuniformly fixed-parameter tractable when parameterized by $k$.
+  %[\easy]
+  In the \emph{Cycle Packing} problem, we are given an undirected graph $G$ and a positive integer $k$, and the goal is to check whether there exist $k$ cycles in $G$ that are pairwise vertex disjoint. Use Theorem~6.12 from the book to prove that this problem is nonuniformly fixed-parameter tractable when parameterized by $k$.
 \end{exercise}
 
 % Cygan et al., Exercise 6.10
 \begin{exercise}[Closest String using Integer Linear Programming][\hard]
   In the \emph{Closest String} problem, we are given a set of $k$ strings $x_1,\dots,x_k$ over alphabet $\Sigma$, each of length $L$, and a positive integer $d$. The goal is to find a string $y$ of length $L$ such that the \emph{Hamming Distance}\footnote{The Hamming Distance between two strings $x$ and $y$ of the same length is the number of positions $i$ such that $x_i \neq y_i$ holds.} between $y$ and $x_i$ is bounded by $d$ for every $i\in \{1,\dots,k\}$. Use Theorem~6.5 from the book to prove that the problem is fixed-parameter tractable when parameterized by $k$ and $|\Sigma|$.
-  
+
   \noindent\emph{Optional bonus task:} Show that this problem parameterized by~$k$ only remains fixed-parameter tractable.
-  \end{exercise}
-  
+\end{exercise}
 
-  \begin{skill}[Graph minors]
-    I can mathematically reason about graph minors and apply the Graph Minors Theorem.
-  \end{skill}
 
-  % Cygan et al., Exercise 7.35
-  \begin{exercise}[Excluded Grid Theorem is Tight]
-    Show that the dependency on $k$ in the Excluded Grid Theorem needs to be $\Omega(k^2)$. That is, construct a graph of treewidth $\Omega(k^2)$ that does not contain a $k \times k$ grid as a minor.
-  \end{exercise}
+\begin{skill}[Graph minors][\mandatory]
+  I can mathematically reason about graph minors and apply the Graph Minors Theorem. \normalfont (See Section~6.3 and~7.7 in \cygan{})
+\end{skill}
 
-  % Cygan et al., Exercise 7.40
-  \begin{exercise}[Bidimensionality]
-    Show that the following problems are bidimensional: Feedback Vertex Set, Induced Matching, Cycle Packing, Scattered Set for a fixed value of $d$, Longest Path, Dominating Set, and $r$-Center for a fixed $r$.
-    \end{exercise}
+% Cygan et al., Exercise 7.35
+\begin{exercise}[Excluded Grid Theorem is Tight]
+  Show that the dependency on $k$ in the Excluded Grid Theorem needs to be $\Omega(k^2)$. That is, construct a graph of treewidth $\Omega(k^2)$ that does not contain a $k \times k$ grid as a minor.
+\end{exercise}
 
-  % Cygan et al., Exercise 7.37
-  \begin{exercise}[Brambles in Grid Graphs][\hard]
-    Prove that for every $t > 1$, the $t\times t$ grid graph contains a bramble of order $t + 1$ and thus the treewidth of the $t\times t$ grid graph is~$t$.
-  \end{exercise}
+% Cygan et al., Exercise 7.40
+\begin{exercise}[Bidimensionality]
+  Show that the following problems are bidimensional: Feedback Vertex Set, Induced Matching, Cycle Packing, Scattered Set for a fixed value of $d$, Longest Path, Dominating Set, and $r$-Center for a fixed $r$.
+\end{exercise}
+
+% Cygan et al., Exercise 7.37
+\begin{exercise}[Brambles in Grid Graphs][\hard]
+  Prove that for every $t > 1$, the $t\times t$ grid graph contains a bramble of order $t + 1$ and thus the treewidth of the $t\times t$ grid graph is~$t$.
+\end{exercise}
 
 \end{document}

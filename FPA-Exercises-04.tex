@@ -11,53 +11,53 @@
 \textbf{Instructions:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
 The problems are roughly ordered by difficulty, choose a problem that you find non-trivial and interesting. (You are of course welcome to try the other problems as well and ask us for feedback.)
 
-\begin{skill}[Graph decompositions]
-  I can mathematically reason about path and tree decompositions.
+\begin{skill}[Graph decompositions][\mandatory]
+  I can mathematically reason about path and tree decompositions. \normalfont (For more context, see Chapter~7 in \cygan{})
 \end{skill}
 
 \begin{exercise}[The clique is in the bag][easy]
   Let $G$ be a graph with tree-decomposition $\mathcal{T}=(T,\{X_t\}_{t\in V(T)})$. Prove that every clique of $G$ is contained in some bag $X_t$.
-  \end{exercise}
-  
-  \begin{exercise}[Becoming nice][easy]
+\end{exercise}
+
+\begin{exercise}[Becoming nice][easy]
   Prove Lemma~7.4 from the lecture:
   {Given a tree decomposition $\mathcal{T}=(T,\{X_t\}_{t\in V(T)})$ of a graph $G$ of width at most $k$, one can in time $O(k^2\cdot \max(|V(T)|,|V(G)|))$ compute a nice tree decomposition of $G$ of width at most $k$ that has at most $O(k|V(G)|)$ nodes.
   }
-  \end{exercise}
+\end{exercise}
 
-  \begin{exercise}[Expander graphs have high treewidth]
-    An $n$-vertex graph $G$ is called an $\alpha$-\emph{edge-expander} if for every set $X \subseteq V(G)$ of size at most $n/2$ there are at least $\alpha\cdot |X|$ edges of $G$ that have exactly one endpoint in $X$. Prove that the treewidth of an $n$-vertex $d$-regular $\alpha$-edge-expander is $\Omega(n\alpha/d)$.
-  \end{exercise}
-  
-  \begin{exercise}[Pathwidth][\hard]
+\begin{exercise}[Expander graphs have high treewidth]
+  An $n$-vertex graph $G$ is called an $\alpha$-\emph{edge-expander} if for every set $X \subseteq V(G)$ of size at most $n/2$ there are at least $\alpha\cdot |X|$ edges of $G$ that have exactly one endpoint in $X$. Prove that the treewidth of an $n$-vertex $d$-regular $\alpha$-edge-expander is $\Omega(n\alpha/d)$.
+\end{exercise}
+
+\begin{exercise}[Pathwidth][\hard]
   Show that the pathwidth of an $n$-vertex tree is at most $\lceil \log n \rceil$. Construct a class of trees of pathwidth $k$ and with $O(3^k)$ vertices.
-  \end{exercise}
-  
-  % Cygan et al., Exercise 7.54
-  \begin{exercise}[Treedepth][\hard]
-    A emph{rooted forest} is a union of pairwise disjoint rooted trees. The \emph{depth} of a rooted forest is the maximum number of vertices in any leaf-to-root path. An \emph{embedding} of a graph $G$ into a rooted forest $H$ is an injective function $f \colon V (G) \rightarrow V(H)$ such that, for every edge $uv \in E(G)$, the vertex $f(u)$ is a descendant of $f(v)$ or $f(v)$ is a descendant of $f(u)$. The \emph{treedepth} of a graph $G$ is equal to the minimum integer~$d$, for which there exists a rooted forest~$H$ of depth~$d$ and an embedding of~$G$ into~$H$.
+\end{exercise}
 
-    Show that the pathwidth of a nonempty graph is always smaller than its treedepth.
-  \end{exercise}
-  
-  \newpage
-  \begin{skill}[Dynamic Programming]
-    I can apply dynamic programming techniques for bounded-width graphs to design fixed-parameter tractable algorithms.
-  \end{skill}
+% \cygan{}, Exercise 7.54
+\begin{exercise}[Treedepth][\hard]
+  A emph{rooted forest} is a union of pairwise disjoint rooted trees. The \emph{depth} of a rooted forest is the maximum number of vertices in any leaf-to-root path. An \emph{embedding} of a graph $G$ into a rooted forest $H$ is an injective function $f \colon V (G) \rightarrow V(H)$ such that, for every edge $uv \in E(G)$, the vertex $f(u)$ is a descendant of $f(v)$ or $f(v)$ is a descendant of $f(u)$. The \emph{treedepth} of a graph $G$ is equal to the minimum integer~$d$, for which there exists a rooted forest~$H$ of depth~$d$ and an embedding of~$G$ into~$H$.
 
-  \begin{exercise}[Undirected Hamiltonicity]
-    Prove that \emph{Undirected Hamiltonicity}\footnote{That is, given an undirected graph $G$, decide whether $G$ contains an Hamilton Cycle.} is fixed-parameter tractable when parameterized pathwidth. You may assume the existence of an algorithm $\mathbb{A}$ that, given an undirected graph $G$ and a positive integer $k$, computes a (nice) path decomposition of width $k$ of $G$ or correctly decides that there is no such path decomposition. Furthermore $\mathbb{A}$ runs in time $f(k) n^{O(1)}$. (For this problem, you are required to directly construct a dynamic programming algorithm over the path decomposition of the input graph. It is also possible to invoke Courcelle's Theorem, but you should not do so here.)
-    \end{exercise}
+  Show that the pathwidth of a nonempty graph is always smaller than its treedepth.
+\end{exercise}
 
-  \begin{exercise}[Graph homomorphisms][\hard]% ~, 2 Points]
-  A \emph{homomorphism} from a graph $H$ to a graph $G$ is a function \[\varphi:V(H)\rightarrow V(G) \,, \] such that for every edge $\{u,v\}$ of $H$ it holds that $\{\varphi(u),\varphi(v)\}$ is an edge of $G$. 
+\newpage
+\begin{skill}[Dynamic Programming][\mandatory]
+  I can apply dynamic programming techniques for bounded-width graphs to design fixed-parameter tractable algorithms. \normalfont (For examples, see Section~7.3 in \cygan{})
+\end{skill}
+
+\begin{exercise}[Undirected Hamiltonicity]
+  Prove that \emph{Undirected Hamiltonicity}\footnote{That is, given an undirected graph $G$, decide whether $G$ contains an Hamilton Cycle.} is fixed-parameter tractable when parameterized pathwidth. You may assume the existence of an algorithm $\mathbb{A}$ that, given an undirected graph $G$ and a positive integer $k$, computes a (nice) path decomposition of width $k$ of $G$ or correctly decides that there is no such path decomposition. Furthermore $\mathbb{A}$ runs in time $f(k) n^{O(1)}$. (For this problem, you are required to directly construct a dynamic programming algorithm over the path decomposition of the input graph. It is also possible to invoke Courcelle's Theorem, but you should not do so here.)
+\end{exercise}
+
+\begin{exercise}[Graph homomorphisms][\hard]% ~, 2 Points]
+  A \emph{homomorphism} from a graph $H$ to a graph $G$ is a function \[\varphi:V(H)\rightarrow V(G) \,, \] such that for every edge $\{u,v\}$ of $H$ it holds that $\{\varphi(u),\varphi(v)\}$ is an edge of $G$.
   \begin{enumerate}
-  \item Prove that one can decide whether there exists a graph homomorphism from $H$ to $G$ in time
-  \[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \]
-  by constructing a dynamic programming algorithm over the tree decomposition of $H$.
-  \item Prove that one can decide whether a graph $H$ is a subgraph of a graph $G$ in time
-  \[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \,.\]
+    \item Prove that one can decide whether there exists a graph homomorphism from $H$ to $G$ in time
+          \[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \]
+          by constructing a dynamic programming algorithm over the tree decomposition of $H$.
+    \item Prove that one can decide whether a graph $H$ is a subgraph of a graph $G$ in time
+          \[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \,.\]
   \end{enumerate}
-  \end{exercise}
-  
+\end{exercise}
+
 \end{document}

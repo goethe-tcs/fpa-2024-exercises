@@ -6,71 +6,88 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\textbf{Note:} Problems marked with \mandatory are mandatory and must be submitted in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}.
+\overview{In this problem set, you will develop and analyze kernelization algorithms.}
 
-\begin{exercise}[Falsify kernelization: \itshape I can precisely explain why a proposed kernelization algorithm for a given problem is not correct][\mandatory]
+\instructions
+
+\begin{skill}[Falsify kernelization][\mandatory]
+  I can precisely explain why a proposed kernelization algorithm for a given problem is not correct.
+\end{skill}
+
+\begin{exercise}[VC reduction rules for CVC]
   \label{ex:CVC}
   The problem Connected Vertex-Cover is defined as follows: Given an undirected graph~$G$ and a positive integer~$k$, decide whether there exists a vertex set $C\subseteq V(G)$ such that $C$ has size at most~$k$ vertices, the subgraph~$G[C]$ induced by $C$ is connected, and $C$~is a vertex-cover of~$G$.
   Where do the kernelization rules for Vertex-Cover (see Theorem 2.4) fail when applied to Connected Vertex-Cover?
 \end{exercise}
 
-\begin{exercise}[Do-almost-nothing kernelization: \itshape I can design and prove the correctness of kernelization algorithms by arguing that every yes- or every no-instance already satisfies the size constraint][\mandatory]
+
+\begin{skill}[Do-almost-nothing kernelization][\mandatory]
+  I can design and prove the correctness of kernelization algorithms by arguing that every yes- or every no-instance already satisfies the size constraint.
+  \normalfont (For an example, read Lemma~2.3 in \cygan{} and how it is used, and the paragraph on p.~19 that talks about constant-size trivial instances.)
+\end{skill}
+
+\begin{exercise}[Feedback vertex set in regular graphs]
   Given an undirected graph $G = (V, E)$, a subset of vertices $X \subseteq V$ is a \emph{feedback vertex
-  set} if removing~$X$ and all edges incident to~$X$ from~$G$ yields a forest. Show that the problem of deciding
+    set} if removing~$X$ and all edges incident to~$X$ from~$G$ yields a forest. Show that the problem of deciding
   whether a graph has a feedback vertex set of size at most $k$ has a kernel with $O(k)$ vertices on regular,
   undirected graphs. (Note: The degree is not assumed to be constant!)
 \end{exercise}
 
-\begin{exercise}[High-degree reduction rules: \itshape I can design and prove the correctness of kernelization algorithms by using a suitable \enquote{high-degree} type reduction rule][\mandatory]
+\begin{skill}[High-degree reduction rules][\mandatory]
+  I can design and prove the correctness of kernelization algorithms by using a suitable \enquote{high-degree} type reduction rule.
+  \normalfont (For an example, see Section~2.2.1 in \cygan{})
+\end{skill}
+
+\begin{exercise}[Line cover in the plane]
   Consider the following problem: Given a set of $n$ points in the plane, decide whether
   there is a set of $k$ lines such that every point lies on at least one line. Prove that this problem has a
   kernel of size $O(k^2)$.
 \end{exercise}%
 
-\textbf{Note:} Problems marked with \hard are especially challenging---they require that you invest a lot of time, play around with different ideas, and have a bit of luck that you find one that works. Best enjoyed with your favorite beverage and a friend. If you solve them, you can be proud of yourself. If you don't, you can still be proud of yourself for trying.
+
+\begin{exercise}[Sunflower lemma for Set Packing]
+  First, read Section 2.6 about the Sunflower Lemma in the book, including its application to the $d$-hitting set problem.
+  Then, using similar ideas, solve the following exercise on the $d$-set packing problem:
+  You are given an integer $k$ and a family of subsets $\mathcal{A}$ of a universe $U$, where each set in $\mathcal{A}$ is of size at most $d$. Decide whether there exist $k$ sets $S_1,\ldots,S_k \in \mathcal{A}$ that are pairwise disjoint.
+  Use the Sunflower Lemma to obtain a kernel for this problem with $f(d)\cdot k^d$ sets, for some computable $f$.
+\end{exercise}
+
+\sepline
+
+\textbf{Note:} The following problems are meant to deepen your understanding of the course material. They are not mandatory, but we encourage you to try them out. You can present your solutions in the exercise session, hand in a written solution for the assignment that focusses on formal writing, or ask us for feedback.
+Problems marked with \hard are especially challenging---they require that you invest a lot of time, play around with different ideas, and have a bit of luck that you find one that works. Best enjoyed with your favorite beverage and a friend. If you solve them, you can be proud of yourself. If you don't, you can still be proud of yourself for trying.
 
 \begin{exercise}[Kernelization for Connected Vertex-Cover][\hard]
   Consider the problem from \ref{ex:CVC}.
   \begin{enumerate}
-      \item Show that the problem admits a kernel with at most $2^k + O(k^2)$ vertices.
-      \item\label{CVC-b} Show that if the input graph does not contain a $4$-cycle as a subgraph, then the problem admits a
-      kernel with at most $O(k^2)$ vertices.
-      \item Extend the argument from \ref{CVC-b} to show that, for every fixed $d \geq 2$, Connected Vertex-Cover restricted to graphs that do not contain the biclique $K_{d,d}$ admits a kernel with $O(k^d)$ vertices.
+    \item Show that the problem admits a kernel with at most $2^k + O(k^2)$ vertices.
+    \item\label{CVC-b} Show that if the input graph does not contain a $4$-cycle as a subgraph, then the problem admits a
+          kernel with at most $O(k^2)$ vertices.
+    \item Extend the argument from \ref{CVC-b} to show that, for every fixed $d \geq 2$, Connected Vertex-Cover restricted to graphs that do not contain the biclique $K_{d,d}$ admits a kernel with $O(k^d)$ vertices.
   \end{enumerate}
 \end{exercise}
 
-\newpage
-\textbf{Note:} The following problems are meant to deepen your understanding of the course material. If you want, you can submit them to train your formal writing skills.
-
-\begin{exercise}[Formal writing: \itshape I can write a formal proof when I am given a proof sketch]
+\begin{exercise}[Details of the LP-based kernelization]
   Let $G = (V, E)$ be a graph, and let $x \in \R^V$ be an
   optimum solution to the linear programming formulation of the vertex-cover problem, LPVC($G$). While $x$ is not necessarily half-integral, you will prove now that it can be turned into an optimal solution~$y$ that is half-integral. To this end, define
   $y\in\R^V$ as follows:
   \[
-  y_v = \begin{cases}
-  0 & \text{if } x_v < \frac{1}{2}\,, \\
-  \frac{1}{2} & \text{if } x_v = \frac{1}{2}\,, \\
-  1 & \text{if } x_v > \frac{1}{2}\,.
-  \end{cases}
+    y_v = \begin{cases}
+      0           & \text{if } x_v < \frac{1}{2}\,, \\
+      \frac{1}{2} & \text{if } x_v = \frac{1}{2}\,, \\
+      1           & \text{if } x_v > \frac{1}{2}\,.
+    \end{cases}
   \]
   Prove that $y$ is also an optimal solution to LPVC($G$).
 
   Hint: For $\delta>0$, define $\widetilde x\in\R^V$ with\[
     \widetilde x_v = \begin{cases}
-    x_v-\delta & \text{if } x_v < \frac{1}{2}\,, \\
-    \frac{1}{2} & \text{if } x_v = \frac{1}{2}\,, \\
-    x_v+\delta & \text{if } x_v > \frac{1}{2}\,.
+      x_v-\delta  & \text{if } x_v < \frac{1}{2}\,, \\
+      \frac{1}{2} & \text{if } x_v = \frac{1}{2}\,, \\
+      x_v+\delta  & \text{if } x_v > \frac{1}{2}\,.
     \end{cases}
-    \]
-    Show for small enough $\delta$ that $\widetilde x$ is also an optimal feasible solution to LPVC($G$). Which setting of~$\delta$ leads~$\widetilde x$ to have fewer values that are not half-integral? Now argue inductively.
-\end{exercise}
-
-
-\begin{exercise}[Sunflower lemma: \itshape I can apply the sunflower lemma to design kernelization algorithms] %[\mandatory]
-  First, read Section 2.6 about the Sunflower Lemma in the book, including its application to the $d$-hitting set problem.
-  Then, using similar ideas, solve the following exercise on the $d$-set packing problem:
-  You are given an integer $k$ and a family of subsets $\mathcal{A}$ of a universe $U$, where each set in $\mathcal{A}$ is of size at most $d$. Decide whether there exist $k$ sets $S_1,\ldots,S_k \in \mathcal{A}$ that are pairwise disjoint.
-  Use the Sunflower Lemma to obtain a kernel for this problem with $f(d)\cdot k^d$ sets, for some computable $f$.
+  \]
+  Show for small enough $\delta$ that $\widetilde x$ is also an optimal feasible solution to LPVC($G$). Which setting of~$\delta$ leads~$\widetilde x$ to have fewer values that are not half-integral? Now argue inductively.
 \end{exercise}
 
 \end{document}

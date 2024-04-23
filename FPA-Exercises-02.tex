@@ -6,14 +6,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\textbf{Overview:} With this problem set, you can train developping FPT algorithms using the \enquote{trivial} method as well as using the bounded search tree method.
+\overview{In this problem set, you develop FPT algorithms using the \enquote{trivial} method as well as using the bounded search tree method.}
 
-\textbf{Instructions:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
-The problems are roughly ordered by difficulty, choose a problem that you find non-trivial and interesting. (You are of course welcome to try the other problems as well and ask us for feedback.)
+\instructions
 
-
-\begin{skill}[\enquote{Trivial} FPT]
-  I can design FPT algorithms by arguing that the optimal solution is large.
+\begin{skill}[\enquote{Trivial} FPT][\mandatory]
+  I can design FPT algorithms by arguing that the optimal solution is large. \normalfont (This is similar to Skill-1b.)
 \end{skill}
 
 \begin{exercise}[Independent set in regular graphs]\label{independent}
@@ -25,58 +23,58 @@ The problems are roughly ordered by difficulty, choose a problem that you find n
 
 \begin{exercise}[Feedback vertex set in regular graphs]
   Given an undirected graph $G = (V, E)$, a subset of vertices $X \subseteq V$ is a \emph{feedback vertex
-  set} if removing~$X$ and all edges incident to~$X$ from~$G$ yields a forest. Show that the problem of deciding
+    set} if removing~$X$ and all edges incident to~$X$ from~$G$ yields a forest. Show that the problem of deciding
   whether a graph has a feedback vertex set of size at most $k$ is fixed-parameter tractable on regular,
   undirected graphs. (Note: Unlike \ref{independent}, the degree is not assumed to be constant here!)
 \end{exercise}
 
 
-\begin{skill}[Bounded search trees]
-  I can design FPT algorithms using bounded search trees.
+\begin{skill}[Bounded search trees][\mandatory]
+  I can design FPT algorithms using bounded search trees. \normalfont (For more context, see Section~3.1 in \cygan{})
 \end{skill}
 
-  \begin{exercise}[Clique in regular graphs]\label{clique}
-    Recall that the clique problem asks whether a given graph contains a clique of size at least~$k$.
-    Let~$r$ be a constant positive integer.
-    Show that the clique problem, when parameterized by~$k$, is fixed-parameter tractable on $r$-regular graphs.
-    \emph{Bonus:} Show that this remains true if~$r$ is part of the input and we parameterize by~$k+r$. (Note: This problem looks similar to \ref{independent}, but the solution is quite different.)
-  \end{exercise}
+\begin{exercise}[Clique in regular graphs]\label{clique}
+  Recall that the clique problem asks whether a given graph contains a clique of size at least~$k$.
+  Let~$r$ be a constant positive integer.
+  Show that the clique problem, when parameterized by~$k$, is fixed-parameter tractable on $r$-regular graphs.
+  \emph{Bonus:} Show that this remains true if~$r$ is part of the input and we parameterize by~$k+r$. (Note: This problem looks similar to \ref{independent}, but the solution is quite different.)
+\end{exercise}
 
-  \begin{exercise}[Feedback vertex set]
+\begin{exercise}[Feedback vertex set]
   Show that every graph on $n$ vertices of minimum degree at least $3$ contains a cycle of length at most $2\lceil \log n\rceil$.
   Use this to design a $(\log n)^{O(k)} \cdot  n^{O(1)}$-time algorithm for the feedback vertex set problem on undirected graphs.
   Does this runtime bound satisfy the conditions for an fpt-algorithm, that is, can it be bounded by $f(k) \cdot n^{O(1)}$ for some computable $f$?
-  \end{exercise}
-  
-  \begin{exercise}[Chordal completion][\hard]
+\end{exercise}
+
+\begin{exercise}[Chordal completion][\hard]
   A graph is \emph{chordal} if it does not contain a cycle on at least four vertices as an induced subgraph.
-  That is, for every cycle of length at least four, 
-  there is at least one edge in the graph between two vertices of the cycle that is not in the cycle. 
+  That is, for every cycle of length at least four,
+  there is at least one edge in the graph between two vertices of the cycle that is not in the cycle.
   Such an edge is a \emph{chord}. Hence the name.
-  
+
   A \emph{triangulation} of a graph $G=(V,E)$ is a set of edges $E' \subseteq \binom{V}{2}$ such that $(V,E\cup E')$ is chordal.
-  
-  Consider the chordal completion problem: Given a graph and an integer $k$, decide whether $G$ has a triangulation of size at most $k$. 
+
+  Consider the chordal completion problem: Given a graph and an integer $k$, decide whether $G$ has a triangulation of size at most $k$.
   \begin{enumerate}
-  \item Give a $k^{O(k)} n^{O(1)}$-time algorithm for the problem.
-  \item Show that there is a bijection between inclusion-wise minimal triangulations of a cycle of length $\ell$ and binary trees with $\ell-2$ internal nodes. From this, conclude that a cycle on $\ell$ vertices has at most $4^{\ell-2}$ inclusion-wise minimal triangulations.
-  \item Use the previous point to design an algorithm for the problem running in time $2^{O(k)} \cdot n^{O(1)}$.
+    \item Give a $k^{O(k)} n^{O(1)}$-time algorithm for the problem.
+    \item Show that there is a bijection between inclusion-wise minimal triangulations of a cycle of length $\ell$ and binary trees with $\ell-2$ internal nodes. From this, conclude that a cycle on $\ell$ vertices has at most $4^{\ell-2}$ inclusion-wise minimal triangulations.
+    \item Use the previous point to design an algorithm for the problem running in time $2^{O(k)} \cdot n^{O(1)}$.
   \end{enumerate}
-  \end{exercise}
-  
-  \begin{exercise}[Max leaf spanning tree][\hard]
+\end{exercise}
+
+\begin{exercise}[Max leaf spanning tree][\hard]
   Consider the following problem: Given a connected graph~$G$ and an integer~$k$, decide whether there is a spanning tree of~$G$ with at least~$k$ leaves. Design an algorithm that solves this problem in time $4^k \cdot n^{O(1)}$.
-  \end{exercise}
+\end{exercise}
 
-  \sepline
+\sepline
 
-  \paragraph{Additional problems.}
-  Solving these problems is required to fully understand the course material. However, you do not need to submit the solution in writing.
+\paragraph{Additional problems.}
+Solving these problems is required to fully understand the course material. However, you do not need to submit the solution in writing.
 
-  \begin{exercise}[Vertex-cover in low-degree graphs][easy]
-    Prove that the vertex-cover problem can be solved optimally in polynomial time on graphs of maximum degree at most $2$.
-    \end{exercise}
-    
+\begin{exercise}[Vertex-cover in low-degree graphs][easy]
+  Prove that the vertex-cover problem can be solved optimally in polynomial time on graphs of maximum degree at most $2$.
+\end{exercise}
 
-    
+
+
 \end{document}
