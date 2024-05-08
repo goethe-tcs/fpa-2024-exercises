@@ -46,16 +46,16 @@ The problems are roughly ordered by difficulty, choose a problem that you find n
 \end{skill}
 
 \begin{exercise}[Undirected Hamiltonicity]
-  Prove that \emph{Undirected Hamiltonicity}\footnote{That is, given an undirected graph $G$, decide whether $G$ contains an Hamilton Cycle.} is fixed-parameter tractable when parameterized pathwidth. You may assume the existence of an algorithm $\mathbb{A}$ that, given an undirected graph $G$ and a positive integer $k$, computes a (nice) path decomposition of width $k$ of $G$ or correctly decides that there is no such path decomposition. Furthermore $\mathbb{A}$ runs in time $f(k) n^{O(1)}$. (For this problem, you are required to directly construct a dynamic programming algorithm over the path decomposition of the input graph. It is also possible to invoke Courcelle's Theorem, but you should not do so here.)
+  Prove that \emph{Undirected Hamiltonicity}\footnote{That is, given an undirected graph $G$, decide whether $G$ contains an Hamilton Cycle.} is fixed-parameter tractable when parameterized by pathwidth. You may assume the existence of an algorithm $\mathbb{A}$ that, given an undirected graph $G$ and a positive integer $k$, computes a (nice) path decomposition of width $k$ of $G$ or correctly decides that there is no such path decomposition. Furthermore $\mathbb{A}$ runs in time $f(k) n^{O(1)}$. (For this problem, you are required to directly construct a dynamic programming algorithm over the path decomposition of the input graph. It is also possible to invoke Courcelle's Theorem, but you should not do so here.)
 \end{exercise}
 
-\begin{exercise}[Graph homomorphisms][\hard]% ~, 2 Points]
+\begin{exercise}[Graph homomorphisms]
   A \emph{homomorphism} from a graph $H$ to a graph $G$ is a function \[\varphi:V(H)\rightarrow V(G) \,, \] such that for every edge $\{u,v\}$ of $H$ it holds that $\{\varphi(u),\varphi(v)\}$ is an edge of $G$.
   \begin{enumerate}
     \item Prove that one can decide whether there exists a graph homomorphism from $H$ to $G$ in time
           \[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \]
           by constructing a dynamic programming algorithm over the tree decomposition of $H$.
-    \item Prove that one can decide whether a graph $H$ is a subgraph of a graph $G$ in time
+    \item (optional, \hard) Prove that there is a bounded-error randomized algorithm to decide whether a graph $H$ is a subgraph of a graph $G$ in time
           \[f(|H|)\cdot |V(G)|^{\mathsf{tw}(H)+O(1)} \,.\]
   \end{enumerate}
 \end{exercise}
