@@ -2,14 +2,46 @@
 \documentclass[english]{uebung_cs}
 \usepackage{settings}
 \blattnummer{7}
-\blattname{Problem set \theblattnummer: TODO}
+\blattname{Problem set \theblattnummer: Longest Path}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\begin{exercise}[todo: skill]
-  Prove or disprove:
-  The Isolation Lemma (Lemma 11.5) still holds if one replaces the sum in the definition of $\textbf{w}$ by a product,
-  and the $\min$ by $\max$.
+\textbf{Overview:} With this problem set, you can train reasoning about algebraic methods used in the algorithm for Longest Path.
+
+\textbf{Instructions:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
+The problems are roughly ordered by difficulty, choose a problem that you find non-trivial and interesting. (You are of course welcome to try the other problems as well and ask us for feedback.)
+
+\begin{skill}[Longest Path Algorithm][\mandatory]
+  I can fill in the details of the Longest Path algorithm.
+\end{skill}
+
+% Cygan et al., Exercise 10.16
+\begin{exercise}[Label necessity]
+  In the \(2^{k} n^{\Oh(1)}\)-time algorithm for Longest Path, we introduced labels so that the non-path walks pair up and hence cancel out. This resulted in \(\Oh(2^k)\) overhead in the running time. In the \(2^{k/2} n^{\Oh(1)}\)-time algorithm for bipartite graphs, we used a different argument for pairing-up non-path walks, by reversing closed subwalks. Does it mean that we can skip the labels then? It seems we cannot, because then we would solve Longest Path in polynomial time! Explain what goes wrong.
 \end{exercise}
 
+% Cygan et al., Exercise 10.14
+\begin{exercise}[Polynomial Identity Testing]
+  Let \( p \) be a polynomial in \( n \) variables over the finite field \( \text{GF}(q) \), such that the degree of \( p \) in each variable (i.e., the maximum exponent of a variable) is strictly less than \( q \). Prove that if \( p \) evaluates to zero for every argument (i.e., \( p \) corresponds to the zero function), then all the coefficients of \( p \) are zero (i.e., \( p \) is the zero polynomial).
+\end{exercise}
+
+% Cygan et al., Exercise 10.17
+\begin{exercise}[Multicolored Path]
+  Given a graph \( G \) and a coloring \( c : V(G) \to [k] \), decide in time \( \Oh(2^k \mathrm{poly}(|V|)) \) and polynomial space whether \( G \) contains a \( k \)-path with vertices from all \( k \) color classes.
+\end{exercise}
+
+\begin{skill}[Adapt the Longest Path Algorithm][\mandatory]
+  I can adapt the ideas of the Longest Path algorithm to solve other problems.
+\end{skill}
+
+% Cygan et al., Exercise 10.18
+\begin{exercise}[Weighted Longest Path]
+  In the Weighted Longest Path problem, we are given a directed graph~\( G \) with a weight function \( w\colon E(G) \to \{0, \ldots, W\} \) and the goal is to find a \( k \)-path \( P \) of the smallest weight \(\sum_{uv\in E(P)} w(u, v)\). Describe a bounded-error randomized algorithm for this problem that runs in time~\( 2^k \cdot W \cdot n^{\Oh(1)} \) and uses polynomial space.
+\end{exercise}
+
+% Cygan et al., Exercise 10.19
+\begin{exercise}[Triangle Packing]
+  Describe a bounded-error randomized algorithm for the Triangle Packing problem: given a graph \( G \) and a number \( k \in \mathbb{N} \), decide whether \( G \) contains \( k \) disjoint triangles (subgraphs isomorphic to \( K_3 \)).
+  Your algorithm should use polynomial space and run in time \( 2^{3k} n^{\Oh(1)} \).
+\end{exercise}
 \end{document}
