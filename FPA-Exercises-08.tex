@@ -1,10 +1,46 @@
 % LTeX: language=en_US
-\documentclass{uebung_cs}
+\documentclass[english]{uebung_cs}
 \usepackage{settings}
 \blattnummer{8}
-\blattname{Problem set \theblattnummer: TODO}
+\blattname{Problem set \theblattnummer: Fixed-Parameter Intractability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\textbf{Overview:} With this problem set, you can train proving \textnormal{W[1]}-hardness.
+
+\textbf{Instructions:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
+The problems are roughly ordered by difficulty, choose a problem that you find non-trivial and interesting. (You are of course welcome to try the other problems as well and ask us for feedback.)
+
+\begin{skill}[Falsify reduction][\mandatory]
+  I can explain why a given reduction does not establish \textnormal{W[1]}-hardness.
+\end{skill}
+
+% Cygan 13.1
+\begin{exercise}[Vertex-Cover]
+  Let $G$ be a graph and $S\subseteq V(G)$.
+  Prove that $S$ is a maximum independent set of $G$ if and only if $V(G)\setminus S$ is a minimum vertex-cover of $G$.
+  Use this to give a polynomial-time reduction from Independent Set to Vertex-Cover.
+  Why is this not also a parameterized reduction that establishes that Vertex-Cover is \textnormal{W[1]}-hard? Is there a parameterized reduction from Vertex-Cover to Independent Set?
+\end{exercise}
+
+\begin{skill}[Design a reduction][\mandatory]
+  I can establish \textnormal{W[1]}-hardness by designing a suitable parameterized reduction from a problem known to be \textnormal{W[1]}-hard.
+\end{skill}
+
+% Cygan 13.2
+\begin{exercise}[Dominating Set]
+  Give a parameterized reduction from Set Cover to Dominating Set.
+\end{exercise}
+
+% Cygan 13.3
+\begin{exercise}[Multicolored Biclique]
+  In the Multicolored Biclique problem, the input consists of a bipartite graph~\( G \) with two parts \( A\) and~\(B \), an integer \( k \), a partition of \( A \) into \( k \) sets \( A_1, A_2, \ldots, A_k \), and a partition of \( B \) into~\( k \) sets \( B_1, B_2, \ldots, B_k \); the question is whether there exists a subgraph of \( G \) isomorphic to the biclique~\( K_{k,k} \), with one vertex in each of the sets \( A_i \) and \( B_i \). Prove that Multicolored Biclique is \textnormal{W[1]}-hard.
+\end{exercise}
+
+% Cygan 13.23
+\begin{exercise}[Set Packing]
+  In the Set Packing problem, the input consists of a family \( \mathcal{F} \) of subsets of a finite universe~\( U \) and an integer \( k \), and the question is whether one can find \( k \) pairwise disjoint sets in \( \mathcal{F} \). Prove that Set Packing is \textnormal{W[1]}-hard when parameterized by \( k \).
+\end{exercise}
 
 % \begin{exercise}[Isolation Lemma]
 %   Prove or disprove:
