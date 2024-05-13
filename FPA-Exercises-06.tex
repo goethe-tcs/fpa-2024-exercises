@@ -1,57 +1,84 @@
 % LTeX: language=en_US
-\documentclass{uebung_cs}
+\documentclass[english]{uebung_cs}
 \usepackage{settings}
 \blattnummer{6}
 \blattname{Problem set \theblattnummer: Algebraic Methods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
+\textbf{Overview:} With this problem set, you can train reasoning about algebraic methods.
 
-TODO
+\textbf{Instructions:} For each skill, select \textbf{exactly one} problem below and submit your solution in \href{https://moodle.studiumdigitale.uni-frankfurt.de/moodle/course/view.php?id=6259}{Moodle}; in your submission, make sure to repeat the problem that you are solving.
+The problems are roughly ordered by difficulty, choose a problem that you find non-trivial and interesting. (You are of course welcome to try the other problems as well and ask us for feedback.)
 
-\begin{exercise}[todo: skill]
-  Show that $\textsc{Edge Multiway Cut}$ is polynomial-time solvable on trees.
+\begin{skill}[Reason about and adapt algebraic methods][\mandatory]
+  I can formally reason about and adapt fast Möbius transforms and fast product operations. \normalfont (See Sections~10.1--10.3 in \cygan{})
+\end{skill}
+
+% Cygan et al., Exercise 10.3
+\begin{exercise}[Proof of Proposition 10.10][easy]
+  Prove that $\zeta = \sigma \mu \sigma$ and $\mu = \sigma \zeta \sigma$ hold.
 \end{exercise}
 
-\begin{exercise}[todo: skill]
-  %[\easy]
-  $\textsc{Shortest Path}$ can be solved in time $O(m\cdot \log n)$ by Dijkstra's Algorithm on connected graphs without negative edge-weights. It can be solved in time $O(m \cdot n)$ by the Bellmann-Ford-Algorithm on connected graphs that may contain negative edge-weights. Show that it can be solved in time $O(m\cdot \operatorname{poly}(k,\log n))$ where $k$ is the number of edges with negative weights. Recall that the algorithm must either compute the length of a shortest path from a given node $s$ to a given node $t$ or correctly report the existence of a negative-weight cycle.
+% Cygan et al., Exercise 10.13
+\begin{exercise}[Fast Packing Product]
+  The \emph{packing product} of two functions \( f,g \colon 2^V \to \mathbb{Z} \) is a function \( (f \ast_p g) \colon 2^V \to \mathbb{Z} \) such that for every \( Y \subseteq V \), we have
+  \begin{align*}
+    (f \ast_p g)(Y) = \sum_{\substack{A,B \subseteq Y \\A\cap B =\emptyset}} f(A) g(B) \,.
+  \end{align*}
+  Show that all \( 2^{n} \) values of \( f \ast_p g \) can be computed in time \( 2^n n^{\Oh(1)} \), where \( n = |V| \).
 \end{exercise}
 
-
-\begin{exercise}[todo: skill]
-  Prove or disprove:
-  The Isolation Lemma (Lemma 11.5) still holds if one replaces the sum in the definition of $\textbf{w}$ by a product,
-  and the $\min$ by $\max$.
-\end{exercise}
-
-\begin{exercise}[todo: skill][\hard]%, 2 Points]
-  In this exercise we generalize the principle of Möbius inversion to finite partially ordered sets (posets) and apply it to graph homomorphisms. To this end, let $P$ be a poset. The \emph{incidence algebra} of a poset $(P,\leq)$ is defined as follows:
-  \[\mathbb{I}(P,\leq) := \{A \in \mathbb{C}^{P\times P} ~|~ x \nleq y \Rightarrow A(x,y)=0\} \,.\]
+\begin{exercise}[Möbius inversion on posets]%[\hard]
+  \label{posets}
+  In this guided exercise, we generalize the principle of Möbius inversion to finite partially ordered sets (posets). To this end, let $P$ be a poset. The \emph{incidence algebra} of a poset $(P,\leq)$ is defined as follows:
+  \[\mathbb{I}(P,\leq) \coloneqq \{A \in \mathbb{C}^{P\times P} ~|~ x \nleq y \Rightarrow A(x,y)=0\} \,.\]
   One example of an element of $\mathbb{I}(P,\leq)$ is the so-called \emph{zeta function}:
-  \[\zeta(x,y)=\begin{cases} 1 ~~~\text{if } x \leq y\\0~~~\text{otherwise} \end{cases} \]
-  \begin{enumerate}
-    \item Consider the element $\mu$ of $\mathbb{I}(P,\leq)$, which is called the \emph{Möbius function} over $(P,\leq)$ and which is inductively defined as follows:
-          \[\mu(x,y)=\begin{cases}
-              1 ~~~~~~~~~~~~\text{if } x = y\\0~~~~~~~~~~~~\text{if } x \nleq y\\ -\sum_{x \leq z < y}\mu(x,z)~~~\text{otherwise} \end{cases} \]
-          \begin{itemize}
-            \item Show that:
-                  \[\sum_{x\leq z\leq y}\mu(x,z)=\begin{cases} 1 ~~~\text{if } x = y\\0~~~\text{otherwise} \end{cases} \]
-            \item Show that $\mu = \zeta^{-1}$ and conclude from $\zeta\cdot \mu = \operatorname{id}$ that the following identity holds as well:
-                  \[\sum_{x\leq z\leq y}\mu(z,y)=\begin{cases} 1 ~~~\text{if } x = y\\0~~~\text{otherwise} \end{cases} \]
-            \item \textbf{Möbius inversion:} Let $f,g : P \rightarrow \mathbb{C}$ such that $g(x) = \sum_{y\leq x} f(y)$ for all $x \in P$. Prove that the following holds for all $x \in P$:
-                  \[f(x) = \sum_{y \leq x} \mu(y,x) \cdot g(y) \]
-          \end{itemize}
-    \item Let $H$ be a graph with vertices $V$. Given two partitions $\sigma$ and $\rho$ of $V$, we write $\sigma \rightarrow \rho$ if $\rho$ can be obtained from $\sigma$ by joining two blocks of $\sigma$. Consider for example $\sigma = \{ \{1,4\}, \{2\}, \{3\} \}$ then $\sigma \rightarrow \{ \{1,2,4\}, \{3\} \}$. Now let $\leq$ be the reflexive-transitive closure of $\rightarrow$, i.e., $\sigma \leq \rho$ iff there are $\sigma_1,\dots,\sigma_k$ such that $\sigma \rightarrow \sigma_1 \rightarrow \dots \rightarrow \sigma_k \rightarrow\rho$. Note that $k$ might be zero.
-          \begin{itemize}
-            \item Let $P(V)$ be the set of partitions of $V$. Show that $(P(V),\leq)$ is a poset. Find the minimum~$\bot$ and the maximum $\top$ of the poset.
-            \item Given an element $\sigma \in P(V)$, the graph $H/\sigma$ is obtained from $H$ by contracting every block of $\sigma$ to a single vertex and deleting multiple edges and keeping self-loops. Given a graph $G$, we let $\mathsf{Hom}(H,G)$ be the number of graph homomorphisms from $H$ to $G$ and let $\mathsf{Inj}(H,G)$ be the number of injective graph homomorphisms from $H$ to $G$. Use Möbius inversion to prove that
-                  \begin{equation}\label{eq1}
-                    \mathsf{Inj}(H,G) = \sum_{\sigma \in P(V)} \mu(\bot,\sigma)\cdot \mathsf{Hom}(H/\sigma,G)
-                  \end{equation}
-            \item Given graphs $H$ and $G$, it is known that the number of subgraphs of $G$ that are isomorphic to $H$ equals $\mathsf{Aut}^{-1}(H)\cdot \mathsf{Inj}(H,G)$, where $\mathsf{Aut}(H)$ is the number of bijective homomorphisms from $H$ to $H$. Discuss the algorithmic consequences of (\ref{eq1}) w.r.t. the counting version of $\textsc{Subgraph Isomorphism}$.
-          \end{itemize}
-  \end{enumerate}
+  \[\zeta(x,y)=\begin{cases} 1 ~~~\text{if } x \leq y\,,\\0~~~\text{otherwise.} \end{cases} \]
+
+  Consider the element $\mu$ of $\mathbb{I}(P,\leq)$, which is called the \emph{Möbius function} over $(P,\leq)$ and which is inductively defined as follows:
+  \[\mu(x,y)=\begin{cases}
+      1 ~~~~~~~~~~~~\text{if } x = y\,,\\0~~~~~~~~~~~~\text{if } x \nleq y\,,\\ -\sum_{x \leq z < y}\mu(x,z)~~~\text{otherwise.} \end{cases} \]
+  \begin{itemize}
+    \item Prove that the following identity holds for all $x,y \in P$:
+          \[\sum_{x\leq z\leq y}\mu(x,z)=\begin{cases} 1 ~~~\text{if } x = y\\0~~~\text{otherwise} \end{cases} \]
+    \item Prove $\mu = \zeta^{-1}$ and conclude from $\zeta\cdot \mu = \operatorname{id}$ that the following identity holds as well:
+          \[\sum_{x\leq z\leq y}\mu(z,y)=\begin{cases} 1 ~~~\text{if } x = y\,,\\0~~~\text{otherwise.} \end{cases} \]
+    \item \textbf{Möbius inversion:} Let $f,g \colon P \to \mathbb{C}$ such that $g(x) = \sum_{y\leq x} f(y)$ holds for all $x \in P$. Prove that the following identity holds for all $x \in P$:
+          \[f(x) = \sum_{y \leq x} \mu(y,x) \cdot g(y) \]
+  \end{itemize}
+\end{exercise}
+
+
+\begin{skill}[Apply algebraic methods to design algorithms][\mandatory]
+  I can apply inclusion--exclusion, the fast Möbius transform, and fast product operations to design fast algorithms. \normalfont (See Sections~10.1--10.3 in \cygan{})
+\end{skill}
+
+% Cygan et al., Exercise 10.9
+\begin{exercise}[Ryser's formula]
+  Use the principle of inclusion--exclusion to design an algorithm which computes the number of perfect matchings in a given \(n\)-vertex bipartite graph in time \(2^{n/2} n^{\Oh(1)}\) and polynomial space.
+\end{exercise}
+
+% Cygan et al., Exercise 10.8
+\begin{exercise}[List coloring] %[easy]
+  In the List Coloring problem, we are given a graph \( G \) and for each vertex \( v \in V(G) \) there is a set (also called a list) of admissible colors \( L(v) \subseteq \mathbb{N} \). The goal is to verify whether it is possible to find a proper vertex coloring \( c : V(G) \rightarrow \mathbb{N} \) of \( G \) such that for every vertex \( v \), we have \( c(v) \in L(v) \). In other words, \( L(v) \) is the set of colors allowed for \( v \).
+  Show a \( 2^n n^{\Oh(1)} \)-time algorithm for List Coloring.
+  \hint{Adapt the algorithm from Theorem 10.16.}
+\end{exercise}
+
+\begin{exercise}[Counting subgraphs]
+  In this guided exercise, you will develop an efficient algorithm for computing the number of subgraphs of a given graph~\(G\) that are isomorphic to a fixed graph \( H \).
+
+  Building on \ref{posets}, we use Möbius inversion on the partition lattice:
+  Let $H$ be a graph with vertex set~$V$. Given two partitions $\sigma$ and $\rho$ of $V$, we write $\sigma \rightarrow \rho$ if $\rho$ can be obtained from $\sigma$ by joining two blocks of~$\sigma$. Example: For $\sigma = \{ \{1,4\}, \{2\}, \{3\} \}$, we have $\sigma \rightarrow \{ \{1,2,4\}, \{3\} \}$. Now let $\leq$ be the reflexive-transitive closure of $\rightarrow$, i.e., $\sigma \leq \rho$ if and only if there are $\sigma_1,\dots,\sigma_k$ with $\sigma \rightarrow \sigma_1 \rightarrow \dots \rightarrow \sigma_k \rightarrow\rho$. Note that $k$ might be zero.
+  \begin{itemize}
+    \item Let $P(V)$ be the set of partitions of $V$. Show that $(P(V),\leq)$ is a poset. This poset is called the \emph{partition lattice}. What is the minimum~$\bot$ and the maximum $\top$ of this poset?
+    \item Given an element $\sigma \in P(V)$, the graph $H/\sigma$ is obtained from $H$ by contracting each block of $\sigma$ to a single vertex, deleting multiple edges, and keeping self-loops. Given a graph $G$, we let $\mathsf{Hom}(H,G)$ be the number of graph homomorphisms from $H$ to $G$ and let $\mathsf{Inj}(H,G)$ be the number of injective graph homomorphisms from $H$ to $G$. Use Möbius inversion to prove
+          \begin{equation}\label{eq1}
+            \mathsf{Inj}(H,G) = \sum_{\sigma \in P(V)} \mu(\bot,\sigma)\cdot \mathsf{Hom}(H/\sigma,G)\,.
+          \end{equation}
+    \item Given graphs $H$ and $G$, it is known that the number of subgraphs of $G$ that are isomorphic to~$H$ equals $\mathsf{Aut}^{-1}(H)\cdot \mathsf{Inj}(H,G)$, where $\mathsf{Aut}(H)$ is the number of automorphisms of~$H$, that is, bijective homomorphisms from~$H$ to~$H$. Combine this knowledge with Exercise~4.7 and \eqref{eq1} to design an algorithm for $\textsc{Subgraph Isomorphism}$. What is the running time of your algorithm?
+  \end{itemize}
 \end{exercise}
 
 \end{document}
