@@ -34,13 +34,13 @@ The problems are roughly ordered by difficulty, choose a problem that you find n
 \begin{exercise}[Graph Property Verification using Courcelle's Theorem]
   %[\easy]
   Let $\Phi$ be a graph property expressible in monadic second-order logic. The problem $\textsc{Verify}[\Phi]$ asks, given a graph~$G$, to decide whether~$G$ has property~$\Phi$.
-  Invoke Courcelle's Theorem (Theorem 7.11) to prove that this problem can be solved in time $f(\mathsf{vc}(G))\cdot n$ for some computable function $f$, where $\mathsf{vc}(G)$ is the size of the largest vertex-cover of~$G$.
+  Invoke Courcelle's Theorem (Theorem 7.11) to prove that this problem can be solved in time $f(\mathsf{vc}(G))\cdot n$ for some computable function $f$, where $\mathsf{vc}(G)$ is the size of the smallest vertex-cover of~$G$.
 \end{exercise}
 
 % Cygan et al., Exercise 6.19
 \begin{exercise}[Cycle Packing using Graph Minors]
   %[\easy]
-  In the \emph{Cycle Packing} problem, we are given an undirected graph~$G$ and a positive integer $k$, and the goal is to check whether there exist $k$ cycles in $G$ that are pairwise vertex disjoint. Use Theorem~6.12 from the book to prove that this problem is nonuniformly fixed-parameter tractable when parameterized by $k$.
+  In the \emph{Cycle Packing} problem, we are given an undirected graph~$G$ and a positive integer $k$, and the goal is to check whether there exist $k$ cycles in $G$ that are pairwise vertex disjoint. Use Theorem~6.12ff from the book to prove that this problem is nonuniformly fixed-parameter tractable when parameterized by $k$.
 \end{exercise}
 
 % Cygan et al., Exercise 6.10

@@ -61,7 +61,7 @@ The problems are roughly ordered by difficulty, choose a problem that you find n
 
 % Cygan et al., Exercise 10.8
 \begin{exercise}[List coloring] %[easy]
-  In the List Coloring problem, we are given a graph \( G \) and for each vertex \( v \in V(G) \) there is a set (also called a list) of admissible colors \( L(v) \subseteq \mathbb{N} \). The goal is to verify whether it is possible to find a proper vertex coloring \( c : V(G) \rightarrow \mathbb{N} \) of \( G \) such that for every vertex \( v \), we have \( c(v) \in L(v) \). In other words, \( L(v) \) is the set of colors allowed for \( v \).
+  In the List Coloring problem, we are given an $n$-vertex graph \( G \) and, for each vertex \( v \in V(G) \), there is a set (also called a list) of admissible colors \( L(v) \subseteq \{1,\dots,n\} \). The goal is to verify whether it is possible to find a proper vertex coloring \( c \colon V(G) \rightarrow \mathbb{N} \) of \( G \) such that for every vertex \( v \), we have \( c(v) \in L(v) \). In other words, \( L(v) \) is the set of colors allowed for \( v \).
   Show a \( 2^n n^{\Oh(1)} \)-time algorithm for List Coloring.
   \hint{Adapt the algorithm from Theorem 10.16.}
 \end{exercise}
