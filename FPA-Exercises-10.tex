@@ -1,0 +1,26 @@
+% LTeX: language=en_US
+\documentclass[english]{uebung_cs}
+\usepackage{settings}
+\blattnummer{10}
+\blattname{Problem set \theblattnummer: The Polynomial Method}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% \begin{skill}[OVH][\mandatory]
+%   I can use the orthogonal vectors hypothesis (OVH) to prove conditional lower bounds for polynomial-time problems.
+% \end{skill}
+
+\begin{exercise}[OR has high degree][\mandatory]
+  Show that representing the OR of $n$ variables $x_1,\dots,x_n$ exactly with a polynomial over GF$(q)$ where $q$ is prime requires degree exactly $n$.
+\end{exercise}
+
+\begin{exercise}[Probabilistic polynomials for bounded-depth circuits][\mandatory]
+  Let $d$ be a positive integer and let $\delta>0$.
+  Show that there exists a constant $D>0$ such that, for every $n$ and every depth-$d$ Boolean circuit with $n$ input variables, there exists a probabilistic polynomial $p$ that satisfies the following for every $x\in\{0,1\}^n$:
+  \[
+    \Pr_p[C(x)\neq p(x)]\leq\delta\,.
+  \]
+  \hint{Interatively convert the gates from the bottom up, with lower gates having a smaller error probability.}
+\end{exercise}
+
+\end{document}
